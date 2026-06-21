@@ -26,8 +26,79 @@
         background-color: #fff;
         color: rgb(53, 53, 53);
         text-align: center;
-        padding: 2rem;
+        padding: 5rem 2rem;
       }
+
+      /* CAUTION TAPE */
+
+      .tape {
+        position: fixed;
+        left: 0;
+        right: 0;
+        height: 44px;
+        background: repeating-linear-gradient(
+          -45deg,
+          #f5c400 0px,
+          #f5c400 20px,
+          #1a1a1a 20px,
+          #1a1a1a 40px
+        );
+        animation: tape-scroll 1.2s linear infinite;
+        z-index: 100;
+      }
+
+      .tape-top {
+        top: 0;
+      }
+
+      .tape-bottom {
+        bottom: 0;
+      }
+
+      @keyframes tape-scroll {
+        from { background-position: 0 0; }
+        to   { background-position: 56.57px 0; }
+      }
+
+      /* WARNING SIGN */
+
+      .warning-sign {
+        font-size: 3.5rem;
+        line-height: 1;
+        margin-bottom: 1rem;
+        display: block;
+        animation: sign-pulse 1.8s ease-in-out infinite;
+      }
+
+      @keyframes sign-pulse {
+        0%, 100% { transform: scale(1) rotate(-4deg); }
+        50%       { transform: scale(1.2) rotate(4deg); }
+      }
+
+      /* TITLE ROW */
+
+      .title-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .barrier {
+        font-size: 2.5rem;
+        animation: barrier-bounce 0.9s ease-in-out infinite alternate;
+      }
+
+      .barrier:last-child {
+        animation-delay: 0.45s;
+      }
+
+      @keyframes barrier-bounce {
+        from { transform: translateY(0); }
+        to   { transform: translateY(-10px); }
+      }
+
+      /* CONTENT */
 
       .logo {
         font-size: 2rem;
@@ -79,21 +150,41 @@
 
       footer {
         position: fixed;
-        bottom: 1.5rem;
+        bottom: 60px;
         font-size: 0.85rem;
         color: rgb(163, 163, 163);
+      }
+
+      @media (max-width: 600px) {
+        h1              { font-size: 2rem; }
+        .barrier        { font-size: 1.75rem; }
+        .warning-sign   { font-size: 2.5rem; }
+        .subtitle       { font-size: 1rem; }
       }
     </style>
   </head>
   <body>
+    <div class="tape tape-top"></div>
+
     <div class="logo">Dylan Peacock</div>
-    <h1>Under Construction</h1>
+
+    <span class="warning-sign">⚠️</span>
+
+    <div class="title-row">
+      <span class="barrier">🚧</span>
+      <h1>Under Construction</h1>
+      <span class="barrier">🚧</span>
+    </div>
+
     <div class="divider"></div>
     <p class="subtitle">
       This website is currently being redesigned and is temporarily unavailable.
       Thank you for your patience — it will be back soon with a fresh new look.
     </p>
     <a class="btn" href="./archived.html">View archived site</a>
+
     <footer>&#169; 2025 Dylan Peacock</footer>
+
+    <div class="tape tape-bottom"></div>
   </body>
 </html>
