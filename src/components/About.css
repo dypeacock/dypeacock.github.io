@@ -1,0 +1,69 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 64px;
+}
+
+.about-title {
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-top: 14px;
+  line-height: 1.2;
+  max-width: 280px;
+}
+
+.about-body {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--grey);
+  max-width: 620px;
+}
+
+.about-body p + p { margin-top: 20px; }
+
+.quirks {
+  margin-top: 48px;
+  border-top: 1px solid var(--line);
+  padding-top: 28px;
+}
+
+.quirks-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--grey-light);
+  margin-bottom: 16px;
+}
+
+.quirks-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 32px;
+}
+
+.quirks-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.quirk-name {
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.quirk-note {
+  font-size: 0.85rem;
+  color: var(--grey-light);
+}
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 24px; }
+  .about-title { max-width: none; }
+  .quirks-list { grid-template-columns: 1fr; }
+}
