@@ -4,12 +4,37 @@
   gap: 64px;
 }
 
+.about-side {
+  display: flex;
+  flex-direction: column;
+}
+
 .about-title {
   font-size: 1.9rem;
   font-weight: 600;
   margin-top: 14px;
   line-height: 1.2;
   max-width: 280px;
+}
+
+.about-photo-frame {
+  margin-top: 40px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 12px 28px;
+  width: 220px;
+  transform: rotate(-2deg);
+  box-shadow: 0 10px 24px rgba(11, 14, 26, 0.08);
+}
+
+.about-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--paper-dim);
 }
 
 .about-body {
@@ -59,7 +84,8 @@
 
 .quirk-note {
   font-size: 0.85rem;
-  color: var(--grey-light);
+  font-weight: 500;
+  color: var(--grey);
 }
 
 @media (max-width: 900px) {

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dylan Peacock</title>
+    <!--
+      GitHub Pages SPA routing trick: GH Pages has no server-side rewrites,
+      so a direct hit on /work/some-slug returns this 404 page. We stash the
+      intended path and bounce to the root, where index.html's inline script
+      restores it via history.replaceState before React Router ever sees it.
+      Based on the widely-used https://github.com/rafgraph/spa-github-pages approach.
+    -->
+    <script>
+      sessionStorage.redirect = location.href;
+    </script>
+    <meta http-equiv="refresh" content="0;URL='/'" />
+  </head>
+  <body></body>
+</html>

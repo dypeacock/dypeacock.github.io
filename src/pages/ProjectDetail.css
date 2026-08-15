@@ -1,0 +1,90 @@
+.project-detail {
+  padding-top: 140px;
+  min-height: 70vh;
+}
+
+.back-link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--blue);
+  margin-bottom: 32px;
+}
+
+.pd-title {
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  font-weight: 600;
+  margin-top: 14px;
+  line-height: 1.15;
+  max-width: 760px;
+}
+
+.pd-subtitle {
+  margin-top: 14px;
+  font-size: 1.1rem;
+  color: var(--grey);
+  max-width: 640px;
+}
+
+.pd-metric {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 300px;
+}
+
+.pd-stack {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pd-body {
+  margin-top: 56px;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.pd-section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.pd-section p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--grey);
+}
+
+.pd-list {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pd-list li {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--grey);
+}
+
+.pd-footer-nav {
+  margin-top: 72px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+  .project-detail { padding-top: 100px; }
+}

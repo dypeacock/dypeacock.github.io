@@ -9,6 +9,46 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Set theme before paint to avoid a flash of the wrong theme -->
+    <script>
+      (function () {
+        var stored = localStorage.getItem('theme');
+        var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+
+    <!-- GitHub Pages SPA routing: restore the real path after the 404.html redirect trick -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+
+    <!-- Structured data for search engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dylan Peacock",
+      "url": "https://dypeacock.github.io",
+      "jobTitle": "Computer Science Graduate",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Loughborough University"
+      },
+      "email": "mailto:dylanpeacock.dev@gmail.com",
+      "sameAs": [
+        "https://github.com/dypeacock",
+        "https://uk.linkedin.com/in/dypeacock"
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

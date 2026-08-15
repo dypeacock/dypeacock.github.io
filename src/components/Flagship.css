@@ -16,7 +16,7 @@
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 48px;
-  background: var(--white);
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 44px;
@@ -95,6 +95,17 @@
   padding-left: 18px;
 }
 .detail-list li { margin-bottom: 8px; }
+
+.flagship-link {
+  display: inline-block;
+  margin-top: 22px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--blue);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.flagship-link:hover { border-color: var(--blue); }
 
 @media (max-width: 860px) {
   .flagship-card { grid-template-columns: 1fr; padding: 28px; gap: 24px; }

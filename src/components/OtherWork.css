@@ -15,7 +15,7 @@
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 26px;
-  background: var(--white);
+  background: var(--card);
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
 

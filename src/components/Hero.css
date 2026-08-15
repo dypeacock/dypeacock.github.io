@@ -14,6 +14,21 @@
   max-width: 560px;
 }
 
+.hero-byline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-portrait {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--line);
+  flex-shrink: 0;
+}
+
 .hero-title {
   font-size: clamp(2.4rem, 4.6vw, 3.6rem);
   line-height: 1.06;
@@ -54,7 +69,7 @@
 
 .btn-primary {
   background: var(--blue);
-  color: var(--white);
+  color: var(--on-accent);
 }
 .btn-primary:hover { background: var(--blue-deep); }
 
@@ -70,11 +85,13 @@
   cursor: default;
 }
 
+/* Symmetric radial fade on every edge, rather than a directional gradient
+   that reads as cut off on the right/bottom. */
 .hero-field::before {
   content: '';
   position: absolute;
-  inset: -10%;
-  background: radial-gradient(circle at 60% 40%, rgba(46, 92, 255, 0.14), transparent 60%);
+  inset: -18%;
+  background: radial-gradient(ellipse 65% 60% at 50% 50%, rgba(46, 92, 255, 0.16), transparent 72%);
   pointer-events: none;
   z-index: 0;
 }
@@ -85,13 +102,15 @@
   font-family: var(--font-mono);
   font-weight: 500;
   white-space: nowrap;
-  background: var(--white);
+  background: var(--card);
   border: 1.5px solid var(--line);
   color: var(--grey);
   padding: 8px 15px;
   border-radius: 999px;
   box-shadow: 0 2px 10px rgba(11, 14, 26, 0.05);
-  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(var(--rot)) scale(1);
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s ease, color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   animation: drift 7s ease-in-out infinite;
   will-change: transform;
 }
@@ -99,7 +118,7 @@
 .hero-tag-fill {
   background: var(--blue);
   border-color: var(--blue);
-  color: var(--white);
+  color: var(--on-accent);
   box-shadow: 0 4px 14px rgba(46, 92, 255, 0.28);
 }
 
@@ -107,14 +126,18 @@
   border-color: var(--blue);
   color: var(--blue);
   z-index: 2;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1.18);
+  box-shadow: 0 8px 22px rgba(11, 14, 26, 0.12);
 }
 
 .hero-tag-fill:hover {
-  color: var(--white);
+  color: var(--on-accent);
   background: var(--blue-deep);
   border-color: var(--blue-deep);
 }
 
+/* Ambient idle float uses margin-top rather than transform, so it never
+   fights with the hover transition (which animates transform directly). */
 @keyframes drift {
   0%, 100% { margin-top: 0px; }
   50% { margin-top: -8px; }

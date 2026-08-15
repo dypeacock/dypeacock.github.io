@@ -1,4 +1,5 @@
 import './About.css'
+import portrait from '../assets/portrait.png'
 
 const QUIRKS = [
   { label: 'Reading & making art', note: 'analogue hobbies for when life gets loud' },
@@ -7,15 +8,23 @@ const QUIRKS = [
   { label: 'Snowboarding', note: 'taught by my dad — still where I find catharsis' },
   { label: 'Rugby', note: 'played to a high level, met my best friends through it' },
   { label: 'Film production & design', note: 'video essays are a genuine hobby, not procrastination' },
+  { label: 'Dog', note: 'unofficial team lead on all household breaks' },
+  { label: 'Music', note: 'usually playing something while I work' },
 ]
 
 export default function About() {
   return (
     <section id="about" className="section section-border">
       <div className="wrap about-grid">
-        <div>
+        <div className="about-side">
           <p className="eyebrow">About</p>
           <h2 className="about-title">Still figuring it out — deliberately.</h2>
+
+          {/* Placeholder using the existing portrait asset — swap the src for
+              the scanned graduation polaroid once it's ready. */}
+          <div className="about-photo-frame">
+            <img src={portrait} alt="Dylan Peacock on graduation day" className="about-photo" />
+          </div>
         </div>
 
         <div className="about-body">

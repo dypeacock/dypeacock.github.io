@@ -1,6 +1,8 @@
 .contact {
-  background: var(--ink);
-  color: var(--white);
+  /* Deliberately fixed dark surface — this section marks a break from the
+     rest of the page and should not flip with light/dark mode. */
+  background: #0B0E1A;
+  color: #FFFFFF;
   padding-bottom: 0;
 }
 
@@ -22,6 +24,12 @@
   margin-top: 40px;
 }
 
+.contact-email-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .contact-link {
   font-family: var(--font-mono);
   font-size: clamp(1.1rem, 2.4vw, 1.5rem);
@@ -32,13 +40,29 @@
 
 .contact-link:hover { border-color: var(--blue); }
 
+.copy-btn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: #9BA0AF;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.copy-btn:hover { color: #FFFFFF; border-color: rgba(255,255,255,0.4); }
+.copy-btn:disabled { opacity: 0.5; cursor: default; }
+
 .contact-secondary {
   margin-top: 24px;
   font-size: 0.95rem;
   color: #9BA0AF;
 }
 
-.contact-secondary a:hover { color: var(--white); }
+.contact-secondary a:hover { color: #FFFFFF; }
 .contact-secondary .dot { margin: 0 10px; }
 
 .footer {
@@ -53,6 +77,9 @@
   font-size: 12px;
   color: #6B7280;
 }
+
+.footer-repo-link { transition: color 0.2s ease; }
+.footer-repo-link:hover { color: #FFFFFF; }
 
 @media (max-width: 600px) {
   .br-desktop { display: none; }
