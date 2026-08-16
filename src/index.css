@@ -5,11 +5,12 @@
   --white: #FFFFFF;
   --blue: #2E5CFF;
   --blue-deep: #1A3FCC;
-  --grey: #565C6D;       /* darkened from #62687A for stronger body contrast */
-  --grey-light: #6B7180; /* darkened from #9BA0AF — was failing AA at small sizes */
+  --grey: #565C6D;
+  --grey-light: #6B7180;
   --line: #E2E4EA;
   --card: #FFFFFF;
-  --on-accent: #FFFFFF; /* text sitting on a solid blue fill — stays white in both themes */
+  --on-accent: #FFFFFF;
+  --rot: 1;
 
   --font-display: "Bricolage Grotesque", sans-serif;
   --font-body: "Inter", sans-serif;

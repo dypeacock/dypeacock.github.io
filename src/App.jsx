@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Nav from './components/Nav'
 import Contact from './components/Contact'
 import Home from './pages/Home'
@@ -19,8 +19,28 @@ function SkeletonScreen({ visible }) {
   )
 }
 
+// React Router's client-side navigation (via <Link>) doesn't trigger the
+// browser's native scroll-to-anchor behavior, since no real page load occurs.
+// This restores that behavior after route/hash changes, e.g. a Link like
+// `to="/#projects"` navigating from a different route.
+function useHashScroll() {
+  const { hash, pathname } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      const el = document.querySelector(hash)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        return
+      }
+    }
+    window.scrollTo(0, 0)
+  }, [hash, pathname])
+}
+
 export default function App() {
   const [loading, setLoading] = useState(true)
+  useHashScroll()
 
   useEffect(() => {
     // Keep this brief and capped — it exists to smooth over slow asset loads

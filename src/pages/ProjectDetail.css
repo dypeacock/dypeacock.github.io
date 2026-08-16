@@ -1,5 +1,5 @@
 .project-detail {
-  padding-top: 140px;
+  padding-top: 60px;
   min-height: 70vh;
 }
 
@@ -8,15 +8,19 @@
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--blue);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
   margin-bottom: 32px;
 }
+
+.back-link:hover { border-color: var(--blue); }
 
 .pd-title {
   font-size: clamp(2rem, 4.4vw, 3rem);
   font-weight: 600;
   margin-top: 14px;
   line-height: 1.15;
-  max-width: 760px;
+  max-width: 900px;
 }
 
 .pd-subtitle {
@@ -33,7 +37,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  max-width: 300px;
+  max-width: 900px;
 }
 
 .pd-stack {

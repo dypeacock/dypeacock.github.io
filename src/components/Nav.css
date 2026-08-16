@@ -2,7 +2,6 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(247, 248, 250, 0.85);
   background: color-mix(in srgb, var(--paper) 85%, transparent);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
@@ -38,7 +37,10 @@
   color: var(--grey);
 }
 
-.nav-links a:hover { color: var(--blue); }
+.nav-links a:hover {
+  color: var(--blue);
+  transform: translateY(-1px)
+}
 
 .theme-toggle {
   width: 34px;

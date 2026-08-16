@@ -19,7 +19,9 @@ export default function ProjectDetail() {
       <div className="wrap">
         <Link to="/#projects" className="back-link">← Back to work</Link>
 
-        <p className="flagship-tag">{project.tag}</p>
+        <div className="flagship-tags">
+          {project.tags.map((tag) => <p className="flagship-tag">{tag}</p>)}
+        </div>
         <h1 className="pd-title">{project.title}</h1>
         <p className="pd-subtitle">{project.subtitle}</p>
 

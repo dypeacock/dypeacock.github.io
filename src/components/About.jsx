@@ -1,5 +1,5 @@
 import './About.css'
-import portrait from '../assets/portrait.png'
+import polaroid from '../assets/Polaroid.png'
 
 const QUIRKS = [
   { label: 'Reading & making art', note: 'analogue hobbies for when life gets loud' },
@@ -18,12 +18,9 @@ export default function About() {
       <div className="wrap about-grid">
         <div className="about-side">
           <p className="eyebrow">About</p>
-          <h2 className="about-title">Still figuring it out — deliberately.</h2>
-
-          {/* Placeholder using the existing portrait asset — swap the src for
-              the scanned graduation polaroid once it's ready. */}
+          <h2 className="about-title">Still figuring it out, deliberately.</h2>
           <div className="about-photo-frame">
-            <img src={portrait} alt="Dylan Peacock on graduation day" className="about-photo" />
+            <img src={polaroid} alt="Dylan Peacock on graduation day" className="about-photo" />
           </div>
         </div>
 

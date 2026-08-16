@@ -13,7 +13,10 @@ export default function Flagship() {
           {FLAGSHIP_PROJECTS.map((p) => (
             <article className="flagship-card" key={p.slug}>
               <div className="flagship-meta">
-                <p className="flagship-tag">{p.tag}</p>
+                {/*<p className="flagship-tag">{p.tags}</p>*/}
+                <div className="flagship-tags">
+                    {p.tags.map((tag) => <p className="flagship-tag">{tag}</p>)}
+                </div>
                 <h3 className="flagship-title">{p.title}</h3>
                 <p className="flagship-subtitle">{p.subtitle}</p>
 
@@ -30,10 +33,14 @@ export default function Flagship() {
               </div>
 
               <div className="flagship-detail">
-                <p className="detail-block">{p.hook}</p>
-                <ul className="detail-list">
-                  {p.process.slice(0, 2).map((step, i) => <li key={i}>{step}</li>)}
-                </ul>
+                  <p className="detail-block"><strong>The problem</strong><br />{p.problem}</p>
+                  <div className="detail-block">
+                      <strong>What I did</strong>
+                      <ul className="detail-list">
+                          {p.approach.map((step, i) => <li key={i}>{step}</li>)}
+                      </ul>
+                  </div>
+                  <p className="detail-block"><strong>Outcome</strong><br />{p.outcome}</p>
                 <Link to={`/work/${p.slug}`} className="flagship-link">
                   Read the full case study →
                 </Link>

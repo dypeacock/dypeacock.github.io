@@ -1,11 +1,22 @@
 export const FLAGSHIP_PROJECTS = [
   {
     slug: 'pose-estimation',
-    tag: 'Final Year Project · Loughborough University',
+    tags: [
+      'Final Year Project',
+      'Loughborough University'
+    ],
     title: 'Teaching a phone to watch how you walk',
     subtitle: 'On-device pose estimation for ankle rehabilitation',
-    hook:
-      'A phone-only gait tracking pipeline: on-device, real-time, and built to run without a specialist in the room.',
+    problem:
+        "Clinical gait rehab usually needs a specialist in the room to watch a patient's movement. I wanted to see how far a phone alone could get, with no server round-trip and no data ever leaving the device.",
+    approach: [
+      'Built a custom pose estimation model on an RTMPose backbone, with a transfer-learned head trained specifically for lower-body joint tracking.',
+      'Quantised the model and exported it to CoreML, so inference runs fully on-device on iOS.',
+      'Tuned frame rate and resolution against a hardware budget, then formally benchmarked accuracy, latency, and FPS rather than eyeballing it.',
+      'Wrapped it in a native Swift app that gives patients real-time visual feedback as they move.',
+    ],
+    // hook:
+    //   'A phone-only gait tracking pipeline: on-device, real-time, and built to run without a specialist in the room.',
     metricLabel: 'Fully on-device',
     metricNote: 'zero server dependency, real-time inference',
     stack: ['PyTorch', 'RTMPose', 'CoreML', 'Swift', 'Model Quantisation'],
@@ -27,11 +38,22 @@ export const FLAGSHIP_PROJECTS = [
   },
   {
     slug: 'ovarro-placement',
-    tag: 'Placement Year · Ovarro, SCADA Product Team',
+    tags: [
+      'Placement Year  Ovarro',
+      'SCADA Product Team'
+    ],
     title: 'A year inside software that keeps the water running',
     subtitle: 'Production engineering on critical infrastructure',
-    hook:
-      'A placement year on a live SCADA codebase for water, energy, and national infrastructure clients — production work, not a simulated project.',
+    problem:
+        "Ovarro builds remote monitoring and SCADA systems for water, energy, and national infrastructure clients. I joined the product team with a large, actively maintained, sparsely documented codebase and had to get productive fast.",
+    approach: [
+      'Worked daily across Java, C++, JavaScript, SQL, PostgreSQL, and Redis inside a live production system.',
+      'Designed automated SQL reporting pipelines for major clients, including Affinity Water, cutting out manual data extraction.',
+      'Used Docker and CI/CD to support reliable, repeatable delivery, and got hands-on with low-level RTU/PLC telemetry protocols.',
+      'Ran fully in agile sprints — stand-ups, code review, sprint planning — and was retained part-time into final year off the back of it.',
+    ],
+    // hook:
+    //   'A placement year on a live SCADA codebase for water, energy, and national infrastructure clients — production work, not a simulated project.',
     metricLabel: '2024 – 2026',
     metricNote: 'retained part-time into final year',
     stack: ['Java', 'C++', 'PostgreSQL', 'Redis', 'Docker', 'CI/CD'],

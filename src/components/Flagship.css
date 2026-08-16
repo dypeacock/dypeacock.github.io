@@ -2,7 +2,7 @@
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 600;
   margin-top: 14px;
-  max-width: 560px;
+  max-width: 900px;
 }
 
 .flagship-list {
@@ -22,7 +22,16 @@
   padding: 44px;
 }
 
+.flagship-tags {
+  display: flex;
+  flex-wrap: wrap;
+  /*flex-direction: column;*/
+  row-gap: 2px;
+  column-gap: 24px;
+}
+
 .flagship-tag {
+  margin: 0;
   font-family: var(--font-mono);
   font-size: 12px;
   color: var(--blue);
@@ -78,6 +87,12 @@
   border-radius: 999px;
   padding: 5px 11px;
   color: var(--grey);
+}
+
+.stack-pill:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  transform: translateY(-1px)
 }
 
 .flagship-detail {
