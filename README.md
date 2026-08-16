@@ -14,9 +14,11 @@ npm run dev
 ```bash
 npm run build
 ```
-Outputs static files to `dist/`. This repo is a GitHub Pages user site (`dypeacock.github.io`), so `main` should hold the built/deployed output — this `new-website` branch is the React source.
+Outputs static files to `dist/`.
 
 ### Deploying to GitHub Pages
+
+This repo is a GitHub Pages user site (`dypeacock.github.io`). Deployment is automated: `.github/workflows/deploy.yml` builds `main` on every push and publishes `dist/` straight to Pages via `actions/deploy-pages` — no build output is committed to git, and no dedicated deploy branch is needed. One-time setup on the GitHub side: Settings → Pages → Build and deployment → Source → **GitHub Actions**.
 
 Because this is a client-side-routed SPA (React Router) on GitHub Pages, direct links to sub-pages like `/work/pose-estimation` need the `public/404.html` redirect trick already included here — GitHub Pages has no server-side rewrites, so a 404 is caught and bounced back to `index.html`, which restores the real URL before React Router mounts. No extra config needed, it's already wired up in `index.html` + `public/404.html`.
 
