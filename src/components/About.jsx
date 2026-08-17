@@ -1,19 +1,16 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import './About.css'
 import polaroid from '../assets/Polaroid.png'
-import blueportrait from '../assets/BluePortrait.png'
-import lionpic from '../assets/lionPic.png'
-import rugbypic from '../assets/rugbyPic.png'
+import bluePolaroid from '../assets/bluePolaroid.png'
+import lionPolaroid from '../assets/lionPolaroid.png'
+import rugbyPolaroid from '../assets/rugbyPolaroid.png'
 
 
-// Placeholder set — all pointing at the same image for now. Add more entries
-// (with their own imported src) to grow the stack; tilt/offset are assigned
-// by index below, not by stack position, so each photo keeps its own look.
 const PHOTOS = [
   { id: 'p1', src: polaroid, alt: 'Dylan Peacock, photo 1' },
-  { id: 'p2', src: blueportrait, alt: 'Dylan Peacock, photo 2' },
-  { id: 'p3', src: lionpic, alt: 'Dylan Peacock, photo 3' },
-  { id: 'p4', src: rugbypic, alt: 'Dylan Peacock, photo 4' },
+  { id: 'p2', src: bluePolaroid, alt: 'Dylan Peacock, photo 2' },
+  { id: 'p3', src: lionPolaroid, alt: 'Dylan Peacock, photo 3' },
+  { id: 'p4', src: rugbyPolaroid, alt: 'Dylan Peacock, photo 4' },
 ]
 
 // Fixed per-photo tilt/offset, keyed by index into PHOTOS (cycles if there
@@ -41,6 +38,7 @@ const QUIRKS = [
 ]
 
 export default function About() {
+
   const [order, setOrder] = useState(() => PHOTOS.map((p) => p.id))
   const [liftedId, setLiftedId] = useState(null)
   const timeoutRef = useRef(null)
