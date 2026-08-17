@@ -40,15 +40,46 @@
   padding: 12px 12px 28px;
   box-shadow: 0 10px 24px rgba(11, 14, 26, 0.08);
   transform: rotate(var(--tilt, -2deg)) translate(var(--offset-x, 0), var(--offset-y, 0));
-  transition: transform 260ms ease, box-shadow 260ms ease;
+  filter: blur(0);
+  transition: transform 260ms ease, box-shadow 260ms ease, filter 260ms ease;
 }
 
-/* Picked up off the top of the stack, about to be tucked in behind the rest */
-.about-photo-frame.is-lifted {
-  transform: rotate(calc(var(--tilt, -2deg) * 0.4))
-    translate(var(--offset-x, 0), calc(var(--offset-y, 0) - 36px)) scale(1.05);
-  box-shadow: 0 20px 32px rgba(11, 14, 26, 0.18);
-  transition: transform 260ms ease, box-shadow 260ms ease;
+/* Only the top card stays in focus — the rest of the stack recedes, so cycling
+   through photos reads clearly as "one card in front, the rest behind." */
+.about-photo-frame:not(.is-front) {
+  filter: blur(1px);
+}
+
+/* Hover affordance on the front card only — a quiet peek, not the full pick-up.
+   Disabled mid-cycle so it doesn't fight the click-driven animation below. */
+.about-photo-stack:not(.is-cycling):hover .about-photo-frame.is-front {
+  transform: rotate(calc(var(--tilt, -2deg) * 0.6))
+    translate(var(--offset-x, 0), calc(var(--offset-y, 0) - 14px)) scale(1.02);
+  box-shadow: 0 14px 26px rgba(11, 14, 26, 0.12);
+}
+
+/* Phase 1 (click): picked up off the stack and drifting right, still on top */
+.about-photo-frame.is-picking-up {
+  transform: rotate(calc(var(--tilt, -2deg) * 0.35))
+    translate(calc(var(--offset-x, 0) + 46px), calc(var(--offset-y, 0) - 46px)) scale(1.06);
+  box-shadow: 0 22px 34px rgba(11, 14, 26, 0.2);
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+
+/* Phase 2 (click): the instant it's reordered to the back, .is-picking-up drops off and
+   the base .about-photo-frame transition above eases it from the drifted pose back to
+   its resting tilt — now underneath the rest of the stack, reading as it dropping in. */
+
+/* Cycling and the hover peek stay fully functional, just without the animated motion —
+   transitions collapse to near-instant rather than being removed outright, so nothing
+   relies on a duration that no longer exists. Paired with the matchMedia check in
+   About.jsx, which skips the JS delay between phases so there's no dead pause either. */
+@media (prefers-reduced-motion: reduce) {
+  .about-photo-frame,
+  .about-photo-frame.is-picking-up,
+  .about-photo-stack:not(.is-cycling):hover .about-photo-frame.is-front {
+    transition-duration: 0.01ms;
+  }
 }
 
 .about-photo {
