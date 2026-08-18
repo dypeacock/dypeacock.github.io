@@ -4,7 +4,7 @@ const GROUPS = [
   {
     title: 'Vision & ML',
     context: 'From training to on-device deployment.',
-    items: ['PyTorch', 'TensorFlow', 'RTMPose', 'U-Net', 'GANs', 'CoreML', 'Model Quantisation'],
+    items: ['PyTorch', 'TensorFlow', 'PyCharm', 'U-Net', 'GANs', 'CoreML', 'OpenCV'],
   },
   {
     title: 'Systems & Infrastructure',
@@ -19,12 +19,17 @@ const GROUPS = [
   {
     title: 'Mobile & Web',
     context: 'Where the code meets a person.',
-    items: ['Swift', 'Kotlin', 'JavaScript', 'HTML/CSS', 'PHP', 'Firebase'],
+    items: ['Swift', 'Kotlin', 'JavaScript', 'ReactJS', 'PHP', 'Firebase'],
   },
   {
     title: 'Languages',
     context: 'Spoken, not compiled.',
     items: ['English (Fluent)', 'French (Fluent)', 'Spanish (Working)'],
+  },
+  {
+    title: 'AI Tools',
+    context: 'Accelerating the workflow.',
+    items: ['Claude Code', 'Skills.md', 'Prompt engineering'],
   },
 ]
 
