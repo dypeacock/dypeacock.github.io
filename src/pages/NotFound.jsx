@@ -7,13 +7,15 @@ export default function NotFound() {
   return (
     <section className={cx('section', styles.notFound)}>
       <div className={cx('wrap', styles.inner)}>
-        <p className="eyebrow">404</p>
+        <h1 className={styles.headingAccent}>404</h1>
         <h1 className={styles.heading}>Nothing built here yet.</h1>
         <p className={styles.subhead}>
-          This page doesn't exist — or it moved. Head back to the work you were
-          probably looking for.
+          This page doesn't exist, or it moved. Head back to the homepage or browse projects on the work page.
         </p>
-        <Link to="/" className={cx(shared.btn, shared.btnPrimary, styles.cta)}>Back to the homepage</Link>
+        <div className={styles.actions}>
+          <Link to="/" className={cx(shared.btn, shared.btnPrimary)}>Back to the homepage</Link>
+          <Link to="/work" className={cx(shared.btn, shared.btnGhost)}>See all projects</Link>
+        </div>
       </div>
     </section>
   )

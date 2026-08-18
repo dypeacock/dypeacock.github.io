@@ -14,12 +14,19 @@
   margin-top: 14px;
 }
 
+.headingAccent {
+  font-size: clamp(9rem, 18vw, 12rem);
+  color: var(--blue);
+}
+
 .subhead {
   margin-top: 16px;
   color: var(--grey);
   line-height: 1.6;
 }
 
-.cta {
-  margin-top: 32px;
+.actions {
+  margin-top: 36px;
+  display: flex;
+  gap: 14px;
 }
