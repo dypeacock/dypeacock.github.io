@@ -145,3 +145,11 @@ export const ALL_PROJECTS = [...FLAGSHIP_PROJECTS, ...OTHER_PROJECTS]
 export function getProjectBySlug(slug) {
   return ALL_PROJECTS.find((p) => p.slug === slug)
 }
+
+// Wraps past the last project back to the first, so ProjectDetail's "next
+// project" link is never in a dead-end state.
+export function getNextProject(slug) {
+  const index = ALL_PROJECTS.findIndex((p) => p.slug === slug)
+  if (index === -1) return null
+  return ALL_PROJECTS[(index + 1) % ALL_PROJECTS.length]
+}

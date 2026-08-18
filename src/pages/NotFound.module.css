@@ -1,25 +1,25 @@
-.not-found {
+.notFound {
   min-height: 80vh;
   display: flex;
   align-items: center;
 }
 
-.not-found-inner {
+.inner {
   max-width: 480px;
 }
 
-.nf-title {
+.heading {
   font-size: clamp(1.8rem, 3.6vw, 2.4rem);
   font-weight: 600;
   margin-top: 14px;
 }
 
-.nf-sub {
+.subhead {
   margin-top: 16px;
   color: var(--grey);
   line-height: 1.6;
 }
 
-.not-found .btn-primary {
+.cta {
   margin-top: 32px;
 }

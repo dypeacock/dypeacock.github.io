@@ -1,8 +1,10 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { useEffect } from 'react'
-import { getProjectBySlug } from '../data/projects'
-import '../components/Flagship.css'
-import './ProjectDetail.css'
+import { getProjectBySlug, getNextProject } from '../data/projects'
+import { cx } from '../lib/cx'
+import shared from '../styles/shared.module.css'
+import tagStyles from '../styles/Tag.module.css'
+import styles from './ProjectDetail.module.css'
 
 export default function ProjectDetail() {
   const { slug } = useParams()
@@ -23,68 +25,73 @@ export default function ProjectDetail() {
   const hasProcess = Boolean(project.process?.length)
   const hasImplementation = Boolean(project.implementation?.length)
   const hasOutcome = Boolean(project.outcome)
+  const nextProject = getNextProject(slug)
 
   return (
-    <article className="project-detail section">
+    <article className={cx('section', shared.page)}>
       <div className="wrap">
-        <Link to="/work" className="back-link">← Back to all work</Link>
+        <Link to="/work" className={shared.backLink}>← Back to all work</Link>
 
         {hasAbout && (
-          <div className="about-tags">
-            {project.about.map((about) => <p className="about-tag">{about}</p>)}
+          <div className={tagStyles.descriptorList}>
+            {project.about.map((about) => <p key={about} className={tagStyles.descriptor}>{about}</p>)}
           </div>
         )}
-        <h1 className="pd-title">{project.title}</h1>
-        {project.subtitle && <p className="pd-subtitle">{project.subtitle}</p>}
+        <h1 className={styles.heading}>{project.title}</h1>
+        {project.subtitle && <p className={styles.subhead}>{project.subtitle}</p>}
 
         {hasMetric && (
-          <div className="pd-metric">
-            <span className="metric-value">{project.metricLabel}</span>
-            <span className="metric-note">{project.metricNote}</span>
+          <div className={cx(shared.metric, styles.metric)}>
+            <span className={shared.metricValue}>{project.metricLabel}</span>
+            <span className={shared.metricNote}>{project.metricNote}</span>
           </div>
         )}
 
-        <div className="pd-stack">
+        <div className={cx(tagStyles.tagList, styles.stack)}>
           {project.tags.map((tag) => (
-              <span key={tag} className="stack-pill">{tag}</span>
+              <Link key={tag} to={`/work?tag=${encodeURIComponent(tag)}`} className={tagStyles.tag}>{tag}</Link>
           ))}
         </div>
 
-        <div className="pd-body">
-          <section className="pd-section">
-            <h2 className="pd-section-title">Brief</h2>
+        <div className={styles.body}>
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Brief</h2>
             <p>{brief}</p>
           </section>
 
           {hasProcess && (
-            <section className="pd-section">
-              <h2 className="pd-section-title">Process</h2>
-              <ul className="pd-list">
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>Process</h2>
+              <ul className={styles.list}>
                 {project.process.map((step, i) => <li key={i}>{step}</li>)}
               </ul>
             </section>
           )}
 
           {hasImplementation && (
-            <section className="pd-section">
-              <h2 className="pd-section-title">Implementation</h2>
-              <ul className="pd-list">
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>Implementation</h2>
+              <ul className={styles.list}>
                 {project.implementation.map((step, i) => <li key={i}>{step}</li>)}
               </ul>
             </section>
           )}
 
           {hasOutcome && (
-            <section className="pd-section">
-              <h2 className="pd-section-title">Outcome</h2>
+            <section className={styles.section}>
+              <h2 className={styles.sectionTitle}>Outcome</h2>
               <p>{project.outcome}</p>
             </section>
           )}
         </div>
 
-        <div className="pd-footer-nav">
-          <Link to="/work" className="back-link">← Back to all work</Link>
-          <Link to="/#contact" className="back-link">Get in touch →</Link>
+        <div className={styles.footerNav}>
+          <Link to="/work" className={shared.backLink}>← Back to all work</Link>
+          {nextProject && (
+            <Link to={`/work/${nextProject.slug}`} className={shared.backLink}>
+              {nextProject.title} →
+            </Link>
+          )}
         </div>
       </div>
     </article>

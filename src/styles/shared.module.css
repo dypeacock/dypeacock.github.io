@@ -1,0 +1,79 @@
+/* Cross-cutting primitives used by more than one page/component. Global
+   tokens, the reset, and plain utility classes (wrap/section/eyebrow/etc.)
+   still live in ../index.css as ordinary global classes — this file is for
+   shared pieces that are scoped components in their own right, either
+   imported directly or `composes`-d from another module's local class. */
+
+.page {
+  padding-top: 60px;
+  min-height: 70vh;
+}
+
+@media (max-width: 600px) {
+  .page { padding-top: 100px; }
+}
+
+.card {
+  border: 1px solid var(--line);
+  background: var(--card);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  padding: 13px 22px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  display: inline-block;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btnPrimary {
+  background: var(--blue);
+  color: var(--on-accent);
+}
+.btnPrimary:hover { background: var(--blue-deep); }
+
+.btnGhost {
+  border-color: var(--line);
+  color: var(--ink);
+}
+.btnGhost:hover { border-color: var(--ink); }
+
+.backLink {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--blue);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+  margin-bottom: 32px;
+}
+.backLink:hover { border-color: var(--blue); }
+
+/* The value/note pair used under a project's headline metric. */
+.metricValue {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.metricNote {
+  font-size: 0.82rem;
+  color: var(--grey-light);
+}
+
+/* Base for the metric block wrapper — Flagship and ProjectDetail each
+   compose this and add their own margin-top/max-width. */
+.metric {
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}

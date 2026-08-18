@@ -1,24 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import Nav from './components/Nav'
-import Contact from './components/Contact'
+import Nav from './components/layout/Nav'
+import Contact from './components/layout/Contact'
+import SkeletonScreen from './components/layout/SkeletonScreen'
 import Home from './pages/Home'
 import Work from './pages/Work'
 import ProjectDetail from './pages/ProjectDetail'
 import NotFound from './pages/NotFound'
-
-function SkeletonScreen({ visible }) {
-  return (
-    <div
-      className="skeleton-screen"
-      style={{ opacity: visible ? 1 : 0, pointerEvents: visible ? 'auto' : 'none' }}
-      aria-hidden={!visible}
-    >
-      <span className="skeleton-mark">DP</span>
-      <div className="skeleton-bar" />
-    </div>
-  )
-}
 
 // React Router's client-side navigation (via <Link>) doesn't trigger the
 // browser's native scroll-to-anchor behavior, since no real page load occurs.

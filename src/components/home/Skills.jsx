@@ -1,4 +1,4 @@
-import './Skills.css'
+import styles from './Skills.module.css'
 
 const GROUPS = [
   {
@@ -33,14 +33,14 @@ export default function Skills() {
     <section id="skills" className="section section-border">
       <div className="wrap">
         <p className="eyebrow">Skills</p>
-        <h2 className="skills-heading">Grouped by what they're for, not just what they are.</h2>
+        <h2 className={styles.heading}>Grouped by what they're for, not just what they are.</h2>
 
-        <div className="skills-grid">
+        <div className={styles.grid}>
           {GROUPS.map((g) => (
-            <div className="skill-group" key={g.title}>
-              <h3 className="skill-group-title">{g.title}</h3>
-              <p className="skill-group-context">{g.context}</p>
-              <div className="skill-items">
+            <div key={g.title}>
+              <h3 className={styles.groupTitle}>{g.title}</h3>
+              <p className={styles.groupContext}>{g.context}</p>
+              <div className={styles.items}>
                 {g.items.map((item) => <span key={item}>{item}</span>)}
               </div>
             </div>

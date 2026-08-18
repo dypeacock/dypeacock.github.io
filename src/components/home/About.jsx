@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import './About.css'
-import polaroid from '../assets/gradPolaroid.png'
-import bluePolaroid from '../assets/bluePolaroid.png'
-import lionPolaroid from '../assets/lionPolaroid.png'
-import rugbyPolaroid from '../assets/rugbyPolaroid.png'
+import { cx } from '../../lib/cx'
+import styles from './About.module.css'
+import polaroid from '../../assets/gradPolaroid.png'
+import bluePolaroid from '../../assets/bluePolaroid.png'
+import lionPolaroid from '../../assets/lionPolaroid.png'
+import rugbyPolaroid from '../../assets/rugbyPolaroid.png'
 
 
 const PHOTOS = [
@@ -20,7 +21,7 @@ const PHOTO_STYLES = [
   { rotate: 5, x: 3, y: 5 },
 ]
 
-// Keep in sync with the .about-photo-frame.is-picking-up transition duration in About.css
+// Keep in sync with the .photoFrame.isPickingUp transition duration in About.module.css
 // this is how long the "pick up & drift right" phase runs before the card is reordered
 // to the back of the stack and eases into its "drop into the stack" pose.
 const PICKUP_DURATION = 220
@@ -50,7 +51,7 @@ export default function About() {
     if (cyclingId || order.length < 2) return
     const frontId = order[0]
     // Reduced-motion users get the same CSS transitions collapsed to ~instant (see
-    // About.css), so there's no reason to hold the reorder behind the pickup delay here.
+    // About.module.css), so there's no reason to hold the reorder behind the pickup delay here.
     const prefersReducedMotion = window.matchMedia?.(REDUCED_MOTION_QUERY).matches
     setCyclingId(frontId)
     timeoutRef.current = setTimeout(() => {
@@ -71,12 +72,12 @@ export default function About() {
 
   return (
     <section id="about" className="section section-border">
-      <div className="wrap about-grid">
-        <div className="about-side">
+      <div className={cx('wrap', styles.grid)}>
+        <div className={styles.side}>
           <p className="eyebrow">About</p>
-          <h2 className="about-title">Still figuring it out, deliberately.</h2>
+          <h2 className={styles.heading}>Still figuring it out, deliberately.</h2>
           <div
-            className={`about-photo-stack${cyclingId ? ' is-cycling' : ''}`}
+            className={cx(styles.photoStack, cyclingId && styles.isCycling)}
             role="button"
             tabIndex={0}
             aria-label="Show next photo"
@@ -94,7 +95,7 @@ export default function About() {
               return (
                 <div
                   key={photo.id}
-                  className={`about-photo-frame${isFront ? ' is-front' : ''}${photo.id === cyclingId ? ' is-picking-up' : ''}`}
+                  className={cx(styles.photoFrame, isFront && styles.isFront, photo.id === cyclingId && styles.isPickingUp)}
                   style={{
                     zIndex: PHOTOS.length - stackIndex,
                     '--tilt': `${rotate}deg`,
@@ -102,14 +103,14 @@ export default function About() {
                     '--offset-y': `${y}px`,
                   }}
                 >
-                  <img src={photo.src} alt={photo.alt} className="about-photo" />
+                  <img src={photo.src} alt={photo.alt} className={styles.photo} />
                 </div>
               )
             })}
           </div>
         </div>
 
-        <div className="about-body">
+        <div className={styles.body}>
           <p>
             I got into computer science because I was inspired by what technology
             can do for people — stories like Turing helping break the Enigma code
@@ -130,13 +131,13 @@ export default function About() {
             committing to a graduate path. Not indecision — due diligence.
           </p>
 
-          <div className="quirks">
-            <p className="quirks-label">Off-screen</p>
-            <ul className="quirks-list">
+          <div className={styles.quirks}>
+            <p className={styles.quirksLabel}>Off-screen</p>
+            <ul className={styles.quirksList}>
               {QUIRKS.map((q) => (
                 <li key={q.label}>
-                  <span className="quirk-name">{q.label}</span>
-                  <span className="quirk-note">{q.note}</span>
+                  <span className={styles.quirkName}>{q.label}</span>
+                  <span className={styles.quirkNote}>{q.note}</span>
                 </li>
               ))}
             </ul>

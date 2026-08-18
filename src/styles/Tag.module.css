@@ -1,0 +1,77 @@
+/* Shared tag vocabulary. Two families:
+   - descriptor: plain uppercase label text, no border ("what kind of
+     project is this" — Flagship/ProjectDetail's about-tags).
+   - tag: bordered pill chip ("what tech was used"). The --filter/--active/
+     --clear modifiers turn a read-only tag into the Work page's interactive
+     filter buttons, rather than reimplementing the same chip twice. */
+
+.descriptorList {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 2px;
+  column-gap: 24px;
+}
+
+.descriptor {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--blue);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 11px;
+  color: var(--grey);
+  background: transparent;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.tag:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.tagFilter {
+  cursor: pointer;
+  font-size: 12px;
+  padding: 6px 14px;
+}
+
+.tagFilter:hover { transform: translateY(-3px); }
+
+/* Selected filters get the blue accent treatment — a clear, deliberate
+   visual break from the neutral read-only tags on each project card. */
+.tagActive {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--on-accent);
+}
+.tagActive:hover {
+  transform: translateY(-3px);
+  color: var(--on-accent);
+}
+
+.tagClear {
+  color: var(--grey-light);
+  border-style: dashed;
+}
+.tagClear:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+.tagClear:disabled {
+  opacity: 0.4;
+  cursor: default;
+}

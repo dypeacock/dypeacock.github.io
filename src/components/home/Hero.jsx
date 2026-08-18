@@ -1,4 +1,6 @@
-import './Hero.css'
+import { cx } from '../../lib/cx'
+import shared from '../../styles/shared.module.css'
+import styles from './Hero.module.css'
 
 // Mix of technical and personal
 // `fill` marks the technical/professional half in solid blue; personal interests stay outlined.
@@ -21,33 +23,32 @@ const TAGS = [
 
 export default function Hero() {
   return (
-    <header className="hero">
-      <div className="wrap hero-grid">
-        <div className="hero-copy">
-          <div className="hero-byline">
-            {/*<img src={portrait} alt="Portrait of Dylan Peacock" className="hero-portrait" />*/}
+    <header className={styles.hero}>
+      <div className={cx('wrap', styles.grid)}>
+        <div className={styles.copy}>
+          <div className={styles.byline}>
             <p className="eyebrow">Dylan Peacock – Computer Science, Loughborough</p>
           </div>
-          <h1 className="hero-title">
+          <h1 className={styles.heading}>
             I build things at the edge of what I understand,
-            <span className="hero-title-accent"> then figure out the rest.</span>
+            <span className={styles.headingAccent}> then figure out the rest.</span>
           </h1>
-          <p className="hero-sub">
+          <p className={styles.subhead}>
             First-class CS graduate with a year on a production SCADA team
             and a final-year project spent teaching a phone to watch how you walk.
             Still deciding exactly where to point all of it next, on purpose.
           </p>
-          <div className="hero-actions">
-            <a className="btn btn-primary" href="#projects">See the work</a>
-            <a className="btn btn-ghost" href="#contact">Get in touch</a>
+          <div className={styles.actions}>
+            <a className={cx(shared.btn, shared.btnPrimary)} href="#projects">See the work</a>
+            <a className={cx(shared.btn, shared.btnGhost)} href="#contact">Get in touch</a>
           </div>
         </div>
 
-        <div className="hero-field">
+        <div className={styles.field}>
           {TAGS.map((tag, i) => (
             <span
               key={tag.label}
-              className={`hero-tag${tag.fill ? ' hero-tag-fill' : ''}`}
+              className={cx(styles.tag, tag.fill && styles.tagFill)}
               style={{
                 left: `${tag.x}%`,
                 top: `${tag.y}%`,

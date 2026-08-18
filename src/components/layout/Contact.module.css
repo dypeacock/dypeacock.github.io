@@ -6,31 +6,34 @@
   padding-bottom: 0;
 }
 
-.contact-inner {
+.inner {
   text-align: center;
   padding-bottom: 80px;
 }
 
-.contact .eyebrow { color: #7C93FF; }
+/* :global() targets the real, page-wide .eyebrow class from index.css —
+   without it this would just create a second, disconnected local class
+   also named "eyebrow" that nothing renders. */
+.contact :global(.eyebrow) { color: #7C93FF; }
 
-.contact-heading {
+.heading {
   font-size: clamp(1.8rem, 3.6vw, 2.6rem);
   font-weight: 600;
   margin-top: 16px;
   line-height: 1.3;
 }
 
-.contact-links {
+.links {
   margin-top: 40px;
 }
 
-.contact-email-row {
+.emailRow {
   display: inline-flex;
   align-items: center;
   gap: 14px;
 }
 
-.contact-link {
+.link {
   font-family: var(--font-mono);
   font-size: clamp(1.1rem, 2.4vw, 1.5rem);
   color: var(--blue);
@@ -38,9 +41,9 @@
   transition: border-color 0.2s ease;
 }
 
-.contact-link:hover { border-color: var(--blue); }
+.link:hover { border-color: var(--blue); }
 
-.copy-btn {
+.copyBtn {
   font-family: var(--font-mono);
   font-size: 12px;
   letter-spacing: 0.03em;
@@ -53,24 +56,24 @@
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.copy-btn:hover { color: #FFFFFF; border-color: rgba(255,255,255,0.4); }
-.copy-btn:disabled { opacity: 0.5; cursor: default; }
+.copyBtn:hover { color: #FFFFFF; border-color: rgba(255,255,255,0.4); }
+.copyBtn:disabled { opacity: 0.5; cursor: default; }
 
-.contact-secondary {
+.secondary {
   margin-top: 24px;
   font-size: 0.95rem;
   color: #9BA0AF;
 }
 
-.contact-secondary a:hover { color: #FFFFFF; }
-.contact-secondary .dot { margin: 0 10px; }
+.secondary a:hover { color: #FFFFFF; }
+.secondary .dot { margin: 0 10px; }
 
 .footer {
   border-top: 1px solid rgba(255,255,255,0.1);
   padding: 24px 0;
 }
 
-.footer-inner {
+.footerInner {
   display: flex;
   justify-content: space-between;
   font-family: var(--font-mono);
@@ -78,9 +81,9 @@
   color: #6B7280;
 }
 
-.footer-repo-link { transition: color 0.2s ease; }
-.footer-repo-link:hover { color: #FFFFFF; }
+.footerRepoLink { transition: color 0.2s ease; }
+.footerRepoLink:hover { color: #FFFFFF; }
 
 @media (max-width: 600px) {
-  .br-desktop { display: none; }
+  .brDesktop { display: none; }
 }

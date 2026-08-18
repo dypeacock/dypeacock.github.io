@@ -1,0 +1,64 @@
+.heading {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 600;
+  margin-top: 14px;
+}
+
+.filter {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.filterLabel {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--grey-light);
+  margin-bottom: 16px;
+}
+
+.grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Composed with shared.card at the call site (not via CSS `composes ...
+   from`, which trips a long-standing Vite/postcss "did not pass the `from`
+   option" warning on cross-file composition) — see Work.jsx. */
+.card {
+  display: block;
+  border-radius: 16px;
+  padding: 26px;
+}
+
+.card:hover {
+  border-color: var(--blue);
+  transform: translateY(-3px);
+}
+
+.cardTitle {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.cardNote {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--grey);
+}
+
+.cardTags {
+  margin-top: 18px;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+}

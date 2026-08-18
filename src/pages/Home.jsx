@@ -1,7 +1,7 @@
-import Hero from '../components/Hero'
-import About from '../components/About'
-import Flagship from '../components/Flagship'
-import Skills from '../components/Skills'
+import Hero from '../components/home/Hero'
+import About from '../components/home/About'
+import Flagship from '../components/home/Flagship'
+import Skills from '../components/home/Skills'
 
 export default function Home() {
   return (

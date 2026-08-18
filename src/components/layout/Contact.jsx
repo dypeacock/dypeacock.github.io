@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import './Contact.css'
+import { cx } from '../../lib/cx'
+import styles from './Contact.module.css'
 
 // Assembled at runtime rather than written plainly in the markup — a cheap
 // deterrent against the simplest scrapers, without adding a form/backend.
@@ -26,20 +27,20 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section contact">
-      <div className="wrap contact-inner">
+    <section id="contact" className={cx('section', styles.contact)}>
+      <div className={cx('wrap', styles.inner)}>
         <p className="eyebrow">Get in touch</p>
-        <h2 className="contact-heading">
-          Open to graduate roles, and to hearing<br className="br-desktop" /> what you're building.
+        <h2 className={styles.heading}>
+          Open to graduate roles, and to hearing<br className={styles.brDesktop} /> what you're building.
         </h2>
-        <div className="contact-links">
-          <div className="contact-email-row">
-            <a href={email ? `mailto:${email}` : undefined} className="contact-link">
+        <div className={styles.links}>
+          <div className={styles.emailRow}>
+            <a href={email ? `mailto:${email}` : undefined} className={styles.link}>
               {email || 'Loading…'}
             </a>
             <button
               type="button"
-              className="copy-btn"
+              className={styles.copyBtn}
               onClick={handleCopy}
               aria-label="Copy email address"
               disabled={!email}
@@ -47,21 +48,21 @@ export default function Contact() {
               {copied ? 'Copied' : 'Copy'}
             </button>
           </div>
-          <div className="contact-secondary">
+          <div className={styles.secondary}>
             <a href="https://github.com/dypeacock" target="_blank" rel="noreferrer">GitHub</a>
-            <span className="dot">·</span>
+            <span className={styles.dot}>·</span>
             <a href="https://uk.linkedin.com/in/dypeacock" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         </div>
       </div>
-      <footer className="footer">
-        <div className="wrap footer-inner">
+      <footer className={styles.footer}>
+        <div className={cx('wrap', styles.footerInner)}>
           <span>Dylan Peacock, {new Date().getFullYear()}</span>
           <a
             href="https://github.com/dypeacock/dypeacock.github.io"
             target="_blank"
             rel="noreferrer"
-            className="footer-repo-link"
+            className={styles.footerRepoLink}
           >
             Source on GitHub
           </a>
