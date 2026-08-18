@@ -1,7 +1,6 @@
 import Hero from '../components/Hero'
 import About from '../components/About'
 import Flagship from '../components/Flagship'
-import OtherWork from '../components/OtherWork'
 import Skills from '../components/Skills'
 
 export default function Home() {
@@ -10,7 +9,6 @@ export default function Home() {
       <Hero />
       <About />
       <Flagship />
-      <OtherWork />
       <Skills />
     </>
   )

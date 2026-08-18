@@ -1,7 +1,7 @@
 export const FLAGSHIP_PROJECTS = [
   {
     slug: 'pose-estimation',
-    tags: [
+    about: [
       'Final Year Project',
       'Loughborough University'
     ],
@@ -15,11 +15,9 @@ export const FLAGSHIP_PROJECTS = [
       'Tuned frame rate and resolution against a hardware budget, then formally benchmarked accuracy, latency, and FPS rather than eyeballing it.',
       'Wrapped it in a native Swift app that gives patients real-time visual feedback as they move.',
     ],
-    // hook:
-    //   'A phone-only gait tracking pipeline: on-device, real-time, and built to run without a specialist in the room.',
     metricLabel: 'Fully on-device',
     metricNote: 'zero server dependency, real-time inference',
-    stack: ['PyTorch', 'RTMPose', 'CoreML', 'Swift', 'Model Quantisation'],
+    tags: ['PyTorch', 'RTMPose', 'CoreML', 'Swift', 'Model Quantisation'],
     brief:
       "Clinical gait rehab usually needs a specialist in the room to watch a patient's movement and judge whether they're recovering correctly. My final-year brief was self-directed: find out how much of that judgement a phone could take on by itself, with no server round-trip and no data ever leaving the device — relevant for both cost and for privacy in a clinical setting.",
     process: [
@@ -38,7 +36,7 @@ export const FLAGSHIP_PROJECTS = [
   },
   {
     slug: 'ovarro-placement',
-    tags: [
+    about: [
       'Placement Year  Ovarro',
       'SCADA Product Team'
     ],
@@ -52,11 +50,9 @@ export const FLAGSHIP_PROJECTS = [
       'Used Docker and CI/CD to support reliable, repeatable delivery, and got hands-on with low-level RTU/PLC telemetry protocols.',
       'Ran fully in agile sprints — stand-ups, code review, sprint planning — and was retained part-time into final year off the back of it.',
     ],
-    // hook:
-    //   'A placement year on a live SCADA codebase for water, energy, and national infrastructure clients — production work, not a simulated project.',
     metricLabel: '2024 – 2026',
     metricNote: 'retained part-time into final year',
-    stack: ['Java', 'C++', 'PostgreSQL', 'Redis', 'Docker', 'CI/CD'],
+    tags: ['Java', 'C++', 'PostgreSQL', 'Redis', 'Docker', 'CI/CD'],
     brief:
       "Ovarro builds remote monitoring and SCADA systems for water, energy, and national infrastructure clients. I joined the product team as a placement engineer, dropped into a large, actively maintained, and sparsely documented codebase, and had to get productive without much hand-holding.",
     process: [
@@ -75,6 +71,77 @@ export const FLAGSHIP_PROJECTS = [
   },
 ]
 
+// Lighter-weight projects — shown in the Work page grid alongside the flagship
+// projects above. They intentionally don't carry the full brief/process/
+// implementation/outcome shape yet; ProjectDetail renders whatever a project
+// actually has and quietly omits the rest, so these still get a working detail
+// page today and can be filled in with full case studies later without any
+// component changes.
+export const OTHER_PROJECTS = [
+  {
+    slug: 'path-following-robot',
+    about: [
+      'Robotics Coursework',
+      'Loughborough University'
+    ],
+    title: 'Autonomous Path-Following Robot',
+    note: 'U-Net segmentation feeding a PID-controlled differential drive — real-time navigation on embedded hardware.',
+    tags: ['U-Net', 'Robotics', 'PID Control'],
+  },
+  {
+    slug: 'isis-bgp-network',
+    about: [
+      'Advanced Networking Coursework',
+      'Loughborough University'
+    ],
+    title: 'Fully Connected Network — IS-IS & BGP',
+    note: 'Multi-router, multi-AS network built from scratch: dynamic routing, external BGP peering, hardened remote access.',
+    tags: ['IS-IS', 'BGP', 'Networking'],
+  },
+  {
+    slug: 'gan-tutorial',
+    about: [
+      'Advanced AI Coursework',
+      'Loughborough University'
+    ],
+    title: 'GAN Tutorial',
+    note: 'A developer-facing walkthrough of DCGAN and conditional GAN architectures, bridging papers and practical code.',
+    tags: ['PyTorch', 'GANs'],
+  },
+  {
+    slug: 'knowledge-management-system',
+    about: [
+      'Group Project Coursework',
+      'Loughborough University'
+    ],
+    title: 'Knowledge Management System',
+    note: 'Full-stack web app deployed on Google Cloud Compute Engine — built and shipped as Scrum Master and developer.',
+    tags: ['PHP', 'Google Cloud', 'Agile'],
+  },
+  {
+    slug: 'rugby-kick-tracker',
+    about: [
+      'Mobile App Development Coursework',
+      'Loughborough University'
+    ],
+    title: 'Rugby Place Kick Tracking App',
+    note: 'Native Android app in Kotlin, Firebase-backed, built to track kicking performance — where the rugby and the code meet.',
+    tags: ['Kotlin', 'Firebase', 'Android'],
+  },
+  {
+    slug: 'arduino-smart-home-hub',
+    about: [
+      'Embedded Systems Coursework',
+      'Loughborough University'
+    ],
+    title: 'Arduino Smart Home Hub',
+    note: 'C++ firmware coordinating multiple devices over Serial, with deliberate SRAM optimisation on constrained hardware.',
+    tags: ['C++', 'Embedded', 'IoT'],
+  },
+]
+
+export const ALL_PROJECTS = [...FLAGSHIP_PROJECTS, ...OTHER_PROJECTS]
+
 export function getProjectBySlug(slug) {
-  return FLAGSHIP_PROJECTS.find((p) => p.slug === slug)
+  return ALL_PROJECTS.find((p) => p.slug === slug)
 }

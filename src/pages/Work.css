@@ -1,0 +1,132 @@
+.work-page {
+  padding-top: 60px;
+  min-height: 70vh;
+}
+
+.work-heading {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 600;
+  margin-top: 14px;
+}
+
+.work-filter {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.work-filter-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--grey-light);
+  margin-bottom: 16px;
+}
+
+.work-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-pill {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  background: transparent;
+  color: var(--grey);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.filter-pill:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+/* Selected filters get the blue accent treatment — a clear, deliberate visual
+   break from the neutral read-only tags printed on each project card below. */
+.filter-pill.is-active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--on-accent);
+}
+
+.filter-pill.is-active:hover { transform: translateY(-1px); }
+
+.filter-pill-clear {
+  color: var(--grey-light);
+  border-style: dashed;
+}
+
+.filter-pill-clear:not(:disabled):hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.filter-pill-clear:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.work-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Moved over from the retired OtherWork component, plus `display: block` since
+   the card is now a <Link> (an inline element by default) rather than a <div>. */
+.other-card {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 26px;
+  background: var(--card);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.other-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-3px);
+}
+
+.other-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.other-note {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--grey);
+}
+
+.other-tags {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.other-tags span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--grey-light);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 9px;
+}
+
+@media (max-width: 900px) {
+  .work-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .work-page { padding-top: 100px; }
+  .work-grid { grid-template-columns: 1fr; }
+}

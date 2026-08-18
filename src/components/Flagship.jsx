@@ -13,9 +13,8 @@ export default function Flagship() {
           {FLAGSHIP_PROJECTS.map((p) => (
             <article className="flagship-card" key={p.slug}>
               <div className="flagship-meta">
-                {/*<p className="flagship-tag">{p.tags}</p>*/}
-                <div className="flagship-tags">
-                    {p.tags.map((tag) => <p className="flagship-tag">{tag}</p>)}
+                <div className="about-tags">
+                    {p.about.map((about) => <p className="about-tag">{about}</p>)}
                 </div>
                 <h3 className="flagship-title">{p.title}</h3>
                 <p className="flagship-subtitle">{p.subtitle}</p>
@@ -26,8 +25,8 @@ export default function Flagship() {
                 </div>
 
                 <div className="flagship-stack">
-                  {p.stack.map((s) => (
-                    <span key={s} className="stack-pill">{s}</span>
+                  {p.tags.map((tag) => (
+                    <span key={tag} className="stack-pill">{tag}</span>
                   ))}
                 </div>
               </div>
@@ -48,6 +47,10 @@ export default function Flagship() {
             </article>
           ))}
         </div>
+
+        <Link to="/work" className="flagship-link flagship-see-all">
+          See all work →
+        </Link>
       </div>
     </section>
   )

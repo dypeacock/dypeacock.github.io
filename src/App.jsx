@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import Nav from './components/Nav'
 import Contact from './components/Contact'
 import Home from './pages/Home'
+import Work from './pages/Work'
 import ProjectDetail from './pages/ProjectDetail'
 import NotFound from './pages/NotFound'
 
@@ -69,6 +70,7 @@ export default function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/work" element={<Work />} />
         <Route path="/work/:slug" element={<ProjectDetail />} />
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />

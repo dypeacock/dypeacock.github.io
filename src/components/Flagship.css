@@ -22,7 +22,7 @@
   padding: 44px;
 }
 
-.flagship-tags {
+.about-tags {
   display: flex;
   flex-wrap: wrap;
   /*flex-direction: column;*/
@@ -30,7 +30,7 @@
   column-gap: 24px;
 }
 
-.flagship-tag {
+.about-tag {
   margin: 0;
   font-family: var(--font-mono);
   font-size: 12px;
@@ -121,6 +121,11 @@
   transition: border-color 0.2s ease;
 }
 .flagship-link:hover { border-color: var(--blue); }
+
+.flagship-see-all {
+  margin-top: 48px;
+  font-size: 14px;
+}
 
 @media (max-width: 860px) {
   .flagship-card { grid-template-columns: 1fr; padding: 28px; gap: 24px; }
