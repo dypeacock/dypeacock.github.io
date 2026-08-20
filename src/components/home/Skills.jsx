@@ -3,32 +3,32 @@ import styles from './Skills.module.css'
 const GROUPS = [
   {
     title: 'Vision & ML',
-    context: 'From training to on-device deployment.',
+    context: 'From training to on-device deployment',
     items: ['PyTorch', 'TensorFlow', 'PyCharm', 'U-Net', 'GANs', 'CoreML', 'OpenCV'],
   },
   {
     title: 'Systems & Infrastructure',
-    context: 'What I used daily at Ovarro.',
+    context: 'What I used daily at Ovarro',
     items: ['Java', 'C++', 'PostgreSQL', 'Redis', 'Docker', 'CI/CD', 'Linux / Bash'],
   },
   {
     title: 'Networking & Security',
-    context: 'From protocol theory to routers I configured myself.',
+    context: 'From protocol theory to routers I configured myself',
     items: ['TCP/IP', 'IS-IS', 'BGP', 'TLS / PKI', 'Cryptography', 'RTU / PLC Protocols'],
   },
   {
     title: 'Mobile & Web',
-    context: 'Where the code meets a person.',
+    context: 'Where the code meets a person',
     items: ['Swift', 'Kotlin', 'JavaScript', 'ReactJS', 'PHP', 'Firebase'],
   },
   {
     title: 'Languages',
-    context: 'Spoken, not compiled.',
+    context: 'Spoken, not compiled',
     items: ['English (Fluent)', 'French (Fluent)', 'Spanish (Working)'],
   },
   {
     title: 'AI Tools',
-    context: 'Accelerating the workflow.',
+    context: 'Accelerating the workflow',
     items: ['Claude Code', 'Skills.md', 'Prompt engineering'],
   },
 ]
@@ -38,7 +38,7 @@ export default function Skills() {
     <section id="skills" className="section section-border">
       <div className="wrap">
         <p className="eyebrow">Skills</p>
-        <h2 className={styles.heading}>Grouped by what they're for, not just what they are.</h2>
+        <h2 className={styles.heading}>Grouped by what they're for, not just what they are</h2>
 
         <div className={styles.grid}>
           {GROUPS.map((g) => (

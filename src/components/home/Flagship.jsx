@@ -10,7 +10,7 @@ export default function Flagship() {
     <section id="projects" className="section section-border">
       <div className="wrap">
         <p className="eyebrow">Flagship work</p>
-        <h2 className={styles.heading}>Two projects, worth a closer look.</h2>
+        <h2 className={styles.heading}>Two projects, worth a closer look</h2>
 
         <div className={styles.list}>
           {FLAGSHIP_PROJECTS.map((p) => (

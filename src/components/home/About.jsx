@@ -29,14 +29,14 @@ const PICKUP_DURATION = 220
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)'
 
 const QUIRKS = [
-  { label: 'Rugby', note: 'As fly-half I\'m often bossing around bigger and more experienced players than myself! Working in high-stakes collaborative team environments for over a dozen years.'},
-  { label: 'Bilingual', note: 'Learnt to speak fluent french after moving to France at the age of 6. Made a habit of being the odd one out, the foreign kid at school or on the pitch, and won people over anyway'},
-  { label: 'Reading & making art', note: 'I\'m a firm believer in the need for analogue hobbies in this day and age. Getting back in the habit of sketching in my downtime.' },
-  { label: 'Snowboarding', note: 'After a lot of blood, sweat and tears, I\'m now an avid snowboarder and love nothing more than a fresh powder day!'},
-  { label: 'Film production & design', note: 'Another hobby is watching video essays of my favourite films and series. Often leaving reviews on Letterboxd!' },
-  { label: 'Joe (Dog)', note: 'Unofficial team lead on all household breaks. He thinks he sits above me in the family hierarchy (he\'s probably right).' },
+  { label: 'Rugby', note: 'As fly-half I\'m often bossing around bigger and more experienced players than myself! Working in high-stakes collaborative team environments for over a dozen years'},
+  { label: 'Bilingual', note: 'Learnt to speak fluent french after moving to France at six. Made a habit of being the odd one out, the foreign kid at school or on the pitch, and won people over anyway'},
+  { label: 'Reading & making art', note: 'I\'m a firm believer in the need for analogue hobbies in this day and age. Getting back in the habit of sketching in my downtime' },
+  { label: 'Snowboarding', note: 'After a lot of blood, sweat and tears, I\'m now an avid snowboarder and love nothing more than a fresh powder day'},
+  { label: 'Film production & design', note: 'Another hobby is watching video essays of my favourite films and series. Often leaving reviews on Letterboxd' },
+  { label: 'Joe (Dog)', note: 'Unofficial team lead on all household breaks. He thinks he sits above me in the family pack hierarchy (he\'s probably right)' },
   { label: 'Music', note: 'Grew up listening to Classic Rock, my playlist has more 70s hits than post-2000 tracks.' },
-  { label: 'Philosophy', note: 'Didn\'t choose it, but the critical thinking it taught me shows up everywhere else I work.' },
+  { label: 'Studied philosophy', note: 'Mandatory class for the french baccalaureat. I was sceptical at first, but the critical thinking it taught me shows up everywhere else I work.' },
 ]
 
 export default function About() {
@@ -75,7 +75,7 @@ export default function About() {
       <div className={cx('wrap', styles.grid)}>
         <div className={styles.side}>
           <p className="eyebrow">About</p>
-          <h2 className={styles.heading}>Still figuring it out, deliberately.</h2>
+          <h2 className={styles.heading}>Still figuring it out, deliberately</h2>
           <div
             className={cx(styles.photoStack, cyclingId && styles.isCycling)}
             role="button"

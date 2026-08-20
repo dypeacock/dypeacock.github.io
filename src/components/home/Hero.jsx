@@ -31,7 +31,7 @@ export default function Hero() {
           </div>
           <h1 className={styles.heading}>
             I build things at the edge of what I understand,
-            <span className={styles.headingAccent}> then figure out the rest.</span>
+            <span className={styles.headingAccent}> then figure out the rest</span>
           </h1>
           <p className={styles.subhead}>
             First-class CS graduate with a year on a production SCADA team
