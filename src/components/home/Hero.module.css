@@ -1,6 +1,10 @@
 .hero {
   padding: 88px 0 40px;
-  overflow: hidden;
+  /* Horizontal stays clipped (guards the field's radial-gradient bleed and any
+     rotated/scaled tag near an edge); vertical stays open so a tag's hover
+     bubble can render above/below the hero's own box without being cut off. */
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .grid {
@@ -109,7 +113,58 @@
   50% { margin-top: -8px; }
 }
 
+/* Anchor handles position only (top/bottom + left/right/center), so it never
+   competes with the bubble's own opacity/scale transform below. Nesting the
+   bubble inside .tag also means it inherits the hover state's rotate(0deg)
+   for free — it only ever appears un-rotated. */
+.bubbleAnchor {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.bubbleTop { bottom: calc(100% + 14px); }
+.bubbleBottom { top: calc(100% + 14px); }
+.bubbleCenter { left: 50%; transform: translateX(-50%); }
+.bubbleLeft { left: 0; }
+.bubbleRight { right: 0; }
+
+.bubble {
+  display: block;
+  width: max-content;
+  max-width: min(220px, calc(100vw - 48px));
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  white-space: normal;
+  color: var(--grey);
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 11px 14px;
+  box-shadow: 0 12px 28px rgba(11, 14, 26, 0.16);
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bubbleTop .bubble { transform-origin: center bottom; }
+.bubbleBottom .bubble { transform-origin: center top; }
+
+.tag:hover .bubble {
+  opacity: 1;
+  transform: scale(1);
+}
+
 @media (max-width: 900px) {
   .grid { grid-template-columns: 1fr; }
   .field { height: 300px; }
+}
+
+/* Below this, the field's hover-driven tags/bubbles have no real mobile
+   equivalent (no cursor, and the drift animation is just distracting on a
+   phone) — hide the whole animated field and let the copy stand alone. */
+@media (max-width: 600px) {
+  .field { display: none; }
 }

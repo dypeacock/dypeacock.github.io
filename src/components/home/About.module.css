@@ -148,3 +148,10 @@
   .heading { max-width: none; }
   .quirksList { grid-template-columns: 1fr; }
 }
+
+/* The click-to-cycle photo stack has no touch affordance and adds height
+   without much payoff on a phone — hide it and let the heading run
+   straight into the body copy. */
+@media (max-width: 600px) {
+  .photoStack { display: none; }
+}
