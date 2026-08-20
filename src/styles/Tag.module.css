@@ -41,6 +41,7 @@
 .tag:hover {
   border-color: var(--blue);
   color: var(--blue);
+  transform: translateY(-3px);
 }
 
 .tagFilter {

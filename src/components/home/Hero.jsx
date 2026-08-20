@@ -23,7 +23,7 @@ const TAGS = [
 
 export default function Hero() {
   return (
-    <header className={styles.hero}>
+    <header id="hero" className={styles.hero}>
       <div className={cx('wrap', styles.grid)}>
         <div className={styles.copy}>
           <div className={styles.byline}>

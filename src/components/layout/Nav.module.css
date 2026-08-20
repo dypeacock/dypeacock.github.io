@@ -24,6 +24,10 @@
   border-radius: 6px;
 }
 
+.mark:hover {
+  border: 1px solid var(--blue);
+}
+
 .right {
   display: flex;
   align-items: center;
@@ -39,7 +43,7 @@
 
 .links a:hover {
   color: var(--blue);
-  transform: translateY(-1px)
+  transform: translateY(-2px)
 }
 
 .themeToggle {
@@ -57,7 +61,7 @@
   flex-shrink: 0;
 }
 
-.themeToggle:hover { border-color: var(--blue); transform: translateY(-1px); }
+.themeToggle:hover { border-color: var(--blue); transform: translateY(-2px); }
 
 .themeToggleIcon {
   font-size: 15px;

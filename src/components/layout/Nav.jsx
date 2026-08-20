@@ -16,7 +16,7 @@ export default function Nav() {
   return (
     <nav className={styles.nav}>
       <div className={cx('wrap', styles.inner)}>
-        <Link to="/" className={styles.mark}>DP</Link>
+        <Link to="/#hero" className={styles.mark}>DP</Link>
         <div className={styles.right}>
           <div className={styles.links}>
             {LINKS.map((l) => (
