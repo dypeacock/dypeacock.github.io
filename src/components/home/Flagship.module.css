@@ -34,6 +34,8 @@
   margin-top: 8px;
   color: var(--grey);
   font-size: 0.95rem;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line);
 }
 
 .metric {

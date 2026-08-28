@@ -1,3 +1,42 @@
+//Pose estimation
+import poseHome from '../assets/IMG_6689.jpg'
+import poseSetup from '../assets/IMG_6690.jpg'
+import poseProgress from '../assets/IMG_6691.jpg'
+import poseSessionDetail from '../assets/IMG_6692.jpg'
+import poseLiveFront from '../assets/IMG_6694.jpg'
+import poseDemoVideo from '../assets/pose-estimation-demo.mp4'
+import poseDemoPoster from '../assets/pose-estimation-demo-poster.jpg'
+
+//Ovarro
+import ovarroPoster from '../assets/OvarroPoster.jpg'
+
+//Robotics
+import roboticsPhoto from '../assets/Robotics.jpg'
+
+//Network
+import bothNets from '../assets/BothNetworks.png'
+import physicalNet from '../assets/Network-physical.png'
+import virtualNet from '../assets/Network-virtual.png'
+import routerConfig from '../assets/Router1-config.png'
+
+//GAN Tutorial
+import gan1 from '../assets/GAN-1.png'
+import gan5 from '../assets/GAN-5.png'
+import gan10 from '../assets/GAN-10.png'
+import gan15 from '../assets/GAN-15.png'
+import gan20 from '../assets/GAN-20.png'
+import trainingImg from '../assets/GAN-TrainingImg.png'
+import trainingLoss from '../assets/GAN-TrainingLoss.png'
+import discrimOutput from '../assets/GAN-DiscriminatorOutputs.png'
+
+//Kicking App
+import pitch from '../assets/Kicker-Pitch.png'
+import posts from '../assets/Kicker-Posts.png'
+import sessions from '../assets/Kicker-Sessions.png'
+import matchSummary from '../assets/Kicker-MatchSummary.png'
+import signIn from '../assets/Kicker-SignIn.png'
+import signUp from '../assets/Kicker-SignUp.png'
+
 export const FLAGSHIP_PROJECTS = [
   {
     slug: 'pose-estimation',
@@ -32,7 +71,42 @@ export const FLAGSHIP_PROJECTS = [
     ],
     outcome:
         "The result is a pipeline I took end to end myself: dataset preparation, model design, training, quantisation, mobile integration, and a structured performance evaluation, not just a trained model in a notebook. It runs in real time, on-device, in an app someone could actually hold.",
-    media: [],
+    media: {
+      type: 'phone',
+      items: [
+        {
+          type: 'video',
+          src: poseDemoVideo,
+          poster: poseDemoPoster,
+          alt: 'Live tracking during a dorsiflexion rep: skeleton overlay on the ankle and knee with a real-time angle readout',
+        },
+        {
+          type: 'image',
+          src: poseHome,
+          alt: 'App home screen: Ankle Rehab, a dorsiflexion and plantarflexion tracker',
+        },
+        {
+          type: 'image',
+          src: poseSetup,
+          alt: 'Session setup screen: choosing tracking side and movement type, with camera positioning guidance',
+        },
+        {
+          type: 'image',
+          src: poseLiveFront,
+          alt: 'Live tracking from a front-on angle, both legs, with the angle readout overlaid at top',
+        },
+        {
+          type: 'image',
+          src: poseSessionDetail,
+          alt: 'Single session detail: best angle, min/avg/max, and the angle-over-time waveform',
+        },
+        {
+          type: 'image',
+          src: poseProgress,
+          alt: 'Progress screen: angle trend across sessions and a session history list',
+        },
+      ],
+    },
   },
   {
     slug: 'ovarro-placement',
@@ -67,7 +141,16 @@ export const FLAGSHIP_PROJECTS = [
     ],
     outcome:
         "I was retained on a part-time contract into my final year, which was the clearest external signal that the contribution held up under normal team expectations, not just placement-student expectations.",
-    media: [],
+    media: {
+      type: 'poster',
+      items: [
+        {
+          type: 'image',
+          src: ovarroPoster,
+          alt: 'Placement-year summary poster: SCADA development at Ovarro, the tech stack used, and key takeaways from the year',
+        },
+      ],
+    },
   },
 ]
 
@@ -107,7 +190,16 @@ export const OTHER_PROJECTS = [
     ],
     outcome:
         "A robot that follows an arbitrary path using only its own camera and an onboard model, with the perception and control loop tuned as a single system rather than two components that happen to be connected.",
-    media: [],
+    media: {
+      type: 'poster',
+      items: [
+        {
+          type: 'image',
+          src: roboticsPhoto,
+          alt: 'Several path-following robots tethered on the lab floor during a coursework demo session',
+        },
+      ],
+    },
   },
   {
     slug: 'isis-bgp-network',
@@ -142,7 +234,31 @@ export const OTHER_PROJECTS = [
     ],
     outcome:
         "A network that had to survive actual physical faults and interoperate with networks built by other teams, not just pass a simulation: IS-IS handled the interior, BGP handled the edges, and the access-hardening and backup work meant it stayed manageable under pressure.",
-    media: [],
+    media: {
+      type: 'poster',
+      items: [
+        {
+          type: 'image',
+          src: bothNets,
+          alt: 'Both Network schemas',
+        },
+        {
+          type: 'image',
+          src: physicalNet,
+          alt: 'Hand-drawn physical network',
+        },
+        {
+          type: 'image',
+          src: virtualNet,
+          alt: 'Hand-drawn virtual network',
+        },
+        {
+          type: 'image',
+          src: routerConfig,
+          alt: 'Both Network schemas',
+        },
+      ],
+    },
   },
   {
     slug: 'gan-tutorial',
@@ -175,7 +291,51 @@ export const OTHER_PROJECTS = [
     ],
     outcome:
         "A tutorial that treats mode collapse and training instability as first-class topics rather than footnotes, aimed at someone trying to get a GAN actually training, not trying to pass an exam on GAN theory.",
-    media: [],
+    media: {
+      type: 'poster',
+      items: [
+        {
+          type: 'image',
+          src: trainingImg,
+          alt: 'GAN Generator Training image',
+        },
+        {
+          type: 'image',
+          src: gan1,
+          alt: 'Output of Generator after 1 epoch',
+        },
+        {
+          type: 'image',
+          src: gan5,
+          alt: 'Output of Generator after 5 epochs',
+        },
+        {
+          type: 'image',
+          src: gan10,
+          alt: 'Output of Generator after 10 epochs',
+        },
+        {
+          type: 'image',
+          src: gan15,
+          alt: 'Output of Generator after 15 epochs',
+        },
+        {
+          type: 'image',
+          src: gan20,
+          alt: 'Output of Generator after 20 epochs',
+        },
+        {
+          type: 'image',
+          src: trainingLoss,
+          alt: 'Loss evolution over iterations',
+        },
+        {
+          type: 'image',
+          src: discrimOutput,
+          alt: 'Outputs of the discriminator over iterations',
+        },
+      ],
+    },
   },
   {
     slug: 'knowledge-management-system',
@@ -208,7 +368,7 @@ export const OTHER_PROJECTS = [
     ],
     outcome:
         "A working full-stack application shipped to a client, with responsibility for both the delivery process as Scrum Master, and a meaningful share of the code: a chance to see both sides of that trade-off on the same project.",
-    media: [],
+    media: null,
   },
   {
     slug: 'rugby-kick-tracker',
@@ -241,7 +401,41 @@ export const OTHER_PROJECTS = [
     ],
     outcome:
         "A native Android app that tracks kicking performance the way I'd actually want to use it, and a proper exercise in Android's Content Provider and lifecycle model rather than a CRUD app that happens to be about rugby.",
-    media: [],
+    media: {
+      type: 'phone',
+      items: [
+        {
+          type: 'image',
+          src: pitch,
+          alt: '',
+        },
+        {
+          type: 'image',
+          src: posts,
+          alt: '',
+        },
+        {
+          type: 'image',
+          src: sessions,
+          alt: '',
+        },
+        {
+          type: 'image',
+          src: matchSummary,
+          alt: '',
+        },
+        {
+          type: 'image',
+          src: signIn,
+          alt: '',
+        },
+        {
+          type: 'image',
+          src: signUp,
+          alt: '',
+        },
+      ],
+    },
   },
   {
     slug: 'arduino-smart-home-hub',
@@ -274,7 +468,7 @@ export const OTHER_PROJECTS = [
     ],
     outcome:
         "Firmware that coordinates multiple devices from a single memory-constrained board, and a concrete lesson in how differently software has to be designed when kilobytes, not gigabytes, are the budget.",
-    media: [],
+    media: null,
   },
 ]
 

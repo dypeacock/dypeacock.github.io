@@ -1,0 +1,155 @@
+/* The lightbox always sits on a dark scrim regardless of site theme — like
+   most media viewers, it deliberately doesn't follow light/dark mode, so
+   colors here are hardcoded rather than pulled from the theme tokens. */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background: rgba(6, 8, 14, 0.82);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.18s ease;
+}
+
+.dialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  max-width: 100%;
+  max-height: 100%;
+  outline: none;
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media {
+  display: block;
+  max-width: min(420px, 82vw);
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  border-radius: 22px;
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.6);
+  object-fit: contain;
+  background: #000;
+}
+
+/* The 420px cap above is sized for a phone screenshot/recording, which is
+   already tall enough to hit the 78vh ceiling well before it hits it width-
+   wise. A poster has no such device shape — it's whatever aspect ratio the
+   source image is — so the same 420px cap left it reading as a thumbnail,
+   not an expanded view. Give it much more width to grow into; height stays
+   the same shared ceiling so it still fits the viewport either way. */
+.posterMedia {
+  max-width: min(1100px, 90vw);
+  max-height: 85vh;
+}
+
+.close,
+.navBtn,
+.playPause,
+.dot {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.close {
+  position: absolute;
+  top: -46px;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.close:hover { background: rgba(255, 255, 255, 0.22); transform: scale(1.05); }
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 1;
+}
+.navBtn:hover { background: rgba(255, 255, 255, 0.24); }
+.navPrev { left: -8px; }
+.navNext { right: -8px; }
+
+@media (min-width: 900px) {
+  .navPrev { left: -60px; }
+  .navNext { right: -60px; }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.playPause {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.playPause:hover { background: rgba(255, 255, 255, 0.24); transform: scale(1.05); }
+
+.dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  transition: width 0.2s ease, background 0.2s ease;
+}
+.dot:hover { background: rgba(255, 255, 255, 0.6); }
+.dotActive,
+.dotActive:hover {
+  width: 20px;
+  background: #fff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop { animation: none; }
+}

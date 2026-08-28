@@ -71,8 +71,6 @@
 /* Base for the metric block wrapper — Flagship and ProjectDetail each
    compose this and add their own margin-top/max-width. */
 .metric {
-  padding-top: 20px;
-  border-top: 1px solid var(--line);
   display: flex;
   flex-direction: column;
   gap: 2px;
