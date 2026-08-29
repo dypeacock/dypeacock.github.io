@@ -31,7 +31,7 @@ export default function Contact() {
       <div className={cx('wrap', styles.inner)}>
         <p className="eyebrow">Get in touch</p>
         <h2 className={styles.heading}>
-          Open to graduate roles, and to hearing<br className={styles.brDesktop} /> what you're building.
+          Looking for a graduate role.<br className={styles.brDesktop} /> Reach out, and I'll send my CV or find time to talk.
         </h2>
         <div className={styles.links}>
           <div className={styles.emailRow}>
@@ -52,6 +52,9 @@ export default function Contact() {
             <a href="https://github.com/dypeacock" target="_blank" rel="noreferrer">GitHub</a>
             <span className={styles.dot}>·</span>
             <a href="https://uk.linkedin.com/in/dypeacock" target="_blank" rel="noreferrer">LinkedIn</a>
+            {/*Might change in future if I decide to make a CV without contact details*/}
+            {/*<span className={styles.dot}>·</span>*/}
+            {/*<a href={cv} target="_blank" rel="noreferrer">CV</a>*/}
           </div>
         </div>
       </div>

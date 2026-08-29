@@ -26,6 +26,7 @@ export default function ProjectDetail() {
   const hasProcess = Boolean(project.process?.length)
   const hasImplementation = Boolean(project.implementation?.length)
   const hasOutcome = Boolean(project.outcome)
+  const hasChallenges = Boolean(project.challenges?.length)
   const hasMedia = Boolean(project.media)
   const nextProject = getNextProject(slug)
 
@@ -47,7 +48,7 @@ export default function ProjectDetail() {
         <div className={cx(styles.layout, hasMedia && styles.withMedia)}>
           {hasMedia && (
             <div className={styles.mediaCol}>
-              <ProjectMedia media={project.media} title={project.title} />
+              <ProjectMedia key={project.slug} media={project.media} title={project.title} />
             </div>
           )}
 
@@ -93,6 +94,15 @@ export default function ProjectDetail() {
                 <section className={styles.section}>
                   <h2 className={styles.sectionTitle}>Outcome</h2>
                   <p>{project.outcome}</p>
+                </section>
+              )}
+
+              {hasChallenges && (
+                <section className={styles.section}>
+                  <h2 className={styles.sectionTitle}>Challenges &amp; Lessons</h2>
+                  <ul className={styles.list}>
+                    {project.challenges.map((step, i) => <li key={i}>{step}</li>)}
+                  </ul>
                 </section>
               )}
             </div>

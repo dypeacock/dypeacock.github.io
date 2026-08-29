@@ -71,6 +71,12 @@ export const FLAGSHIP_PROJECTS = [
     ],
     outcome:
         "The result is a pipeline I took end to end myself: dataset preparation, model design, training, quantisation, mobile integration, and a structured performance evaluation, not just a trained model in a notebook. It runs in real time, on-device, in an app someone could actually hold.",
+    challenges: [
+      "Environment management became its own early obstacle: manually tracking mismatched package versions across tools wasn't sustainable. Switching to Anaconda solved it: I could create environments, activate them per task, save to and restore them from a YAML file, which also turned out to matter later for keeping remote training environments identical to my local one.",
+      'No existing pose-estimation framework was trained on lower-body and ankle-specific keypoints, so there was no dataset to fine-tune from. I recorded my own training footage and labelled it using an annotation and training pipeline built for animal-behavioural analysis, adapted for human joint tracking instead of the animal subjects it was designed around.',
+      "My 8GB MacBook Air made local training impractical. I first moved training onto university lab machines, until I lost a run overnight to a nightly wipe I hadn't been told about; after that I moved to GCP VMs sized for the task, SSH'd in from my laptop, and used the saved Anaconda YAML file to keep the remote environment identical to my local one.",
+      'This project was also where I properly learned PyTorch, picked up alongside the model design itself rather than as separate prep beforehand.',
+    ],
     media: {
       type: 'phone',
       items: [
@@ -141,6 +147,11 @@ export const FLAGSHIP_PROJECTS = [
     ],
     outcome:
         "I was retained on a part-time contract into my final year, which was the clearest external signal that the contribution held up under normal team expectations, not just placement-student expectations.",
+    challenges: [
+      'The codebase was large, actively maintained, and thinly documented, with only a few engineers who knew particular parts end to end. Getting productive meant reconstructing intent from old support tickets, ageing Confluence pages, and outdated requirements documents, rather than reading it off any current source.',
+      'This was my first time working on a large, live, deployed system rather than a coursework-sized one, which is where distributed-systems and CI/CD practice actually stuck: Redis, PostgreSQL and pgAdmin, Maven, and Docker containers as a real delivery pipeline rather than named technologies.',
+      'Day-to-day development ran on a Windows laptop through a Linux VM, which is where I picked up command-line skills.',
+    ],
     media: {
       type: 'poster',
       items: [
@@ -190,6 +201,11 @@ export const OTHER_PROJECTS = [
     ],
     outcome:
         "A robot that follows an arbitrary path using only its own camera and an onboard model, with the perception and control loop tuned as a single system rather than two components that happen to be connected.",
+    challenges: [
+      'The deadline landed awkwardly between my dissertation submission and the first of three back-to-back exams, so the robot work had to be finished and buffered well ahead of that week rather than run alongside it.',
+      'Good training footage turned out to be the actual bottleneck, not the model. With 50-plus students sharing three two-hour lab sessions a week and a limited number of robots, clear track time was scarce, and test runs were often interrupted by other teams\' robots crowding the same track.',
+      'The brief rewarded deep learning generally, which still left classification, regression, reinforcement learning, and segmentation all on the table. Segmentation won because it let me apply the morphological operations I was already revising for a Computer Vision exam the following week.',
+    ],
     media: {
       type: 'poster',
       items: [
@@ -234,6 +250,10 @@ export const OTHER_PROJECTS = [
     ],
     outcome:
         "A network that had to survive actual physical faults and interoperate with networks built by other teams, not just pass a simulation: IS-IS handled the interior, BGP handled the edges, and the access-hardening and backup work meant it stayed manageable under pressure.",
+    challenges: [
+      "Physical faults were a recurring source of confusion early on: a broken or mislabelled cable can look identical to a routing misconfiguration until it's actually been ruled out, which made cable management as much a discipline as the routing configuration itself.",
+      'For the virtual half of the topology, I learned Kathara, an open-source container-based network emulation tool, so the virtualised routers could be configured and tested through the same CLI workflow as the physical ones.',
+    ],
     media: {
       type: 'poster',
       items: [
@@ -291,6 +311,10 @@ export const OTHER_PROJECTS = [
     ],
     outcome:
         "A tutorial that treats mode collapse and training instability as first-class topics rather than footnotes, aimed at someone trying to get a GAN actually training, not trying to pass an exam on GAN theory.",
+    challenges: [
+      'Training locally was the same problem as the pose-estimation project: too slow to iterate on. I moved training onto a GCP VM again, which by this point was a workflow I could reuse rather than solve from scratch.',
+      'Building the network itself pushed my PyTorch further than the transfer-learning work on the pose-estimation project had. This time, defining and training generator and discriminator architectures from scratch rather than fine-tuning an existing model\'s head.',
+    ],
     media: {
       type: 'poster',
       items: [
@@ -401,6 +425,11 @@ export const OTHER_PROJECTS = [
     ],
     outcome:
         "A native Android app that tracks kicking performance the way I'd actually want to use it, and a proper exercise in Android's Content Provider and lifecycle model rather than a CRUD app that happens to be about rugby.",
+    challenges: [
+      "I designed the app's layout in Figma before writing any UI code, which was new to me. It meant the Jetpack Compose work was implementing an already-decided design rather than designing and coding at the same time.",
+      'Jetpack Compose itself meant learning a declarative UI style, building components that matched the Figma design precisely rather than assembling views imperatively.',
+      'Getting Gradle dependencies (Firebase, the Content Provider setup, Compose itself) to actually sync together was a recurring obstacle, with small version mismatches costing disproportionate time to track down.',
+    ],
     media: {
       type: 'phone',
       items: [

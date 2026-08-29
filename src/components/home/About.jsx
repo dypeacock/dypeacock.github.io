@@ -35,8 +35,8 @@ const QUIRKS = [
   { label: 'Snowboarding', note: 'After a lot of blood, sweat and tears, I\'m now an avid snowboarder and love nothing more than a fresh powder day'},
   { label: 'Film production & design', note: 'Another hobby is watching video essays of my favourite films and series. Often leaving reviews on Letterboxd' },
   { label: 'Joe (Dog)', note: 'Unofficial team lead on all household breaks. He thinks he sits above me in the family pack hierarchy (he\'s probably right)' },
-  { label: 'Music', note: 'Grew up listening to Classic Rock, my playlist has more 70s hits than post-2000 tracks.' },
-  { label: 'Studied philosophy', note: 'Mandatory class for the french baccalaureat. I was sceptical at first, but the critical thinking it taught me shows up everywhere else I work.' },
+  { label: 'Music', note: 'Grew up listening to Classic Rock, my playlist has more 70s hits than post-2000 tracks' },
+  { label: 'Studied philosophy', note: 'Mandatory class for the french baccalaureat. I was sceptical at first, but the critical thinking it taught me shows up everywhere else I work' },
 ]
 
 export default function About() {
