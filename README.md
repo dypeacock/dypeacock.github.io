@@ -41,9 +41,3 @@ public/
 - Flagship project case studies (both the homepage cards and the `/work/:slug` detail pages) live in `src/data/projects.js` — edit the `brief` / `process` / `implementation` / `outcome` fields.
 - Everything else (About copy, Other Work grid, Skills groups) lives directly in its component file under `src/components/`.
 - The About section currently uses `src/assets/portrait.png` as a placeholder for both the hero avatar and the "polaroid" — swap in the scanned graduation photo when it's ready (same file, two places it's imported: `Hero.jsx` and `About.jsx`).
-
-## Known follow-ups (not yet built)
-
-- Hand-drawn nav mark / button elements — deferred, needs source art.
-- Contact form as an alternative to `mailto:` — current approach uses a JS-assembled address plus a copy-to-clipboard button, which resists basic scraping without the complexity of a form backend. Revisit if spam becomes an actual problem.
-- Sitemap.xml referenced in `robots.txt` isn't generated yet — worth adding once the `/work/:slug` routes are finalised.

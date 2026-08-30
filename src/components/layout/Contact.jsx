@@ -70,6 +70,9 @@ export default function Contact() {
             Source on GitHub
           </a>
         </div>
+        <p className={cx('wrap', styles.footerNote)}>
+          This site uses Cloudflare Web Analytics for aggregate visit counts. No cookies or personal data is collected.
+        </p>
       </footer>
     </section>
   )

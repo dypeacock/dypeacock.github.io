@@ -84,6 +84,13 @@
 .footerRepoLink { transition: color 0.2s ease; }
 .footerRepoLink:hover { color: #FFFFFF; }
 
+.footerNote {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #6B7280;
+}
+
 @media (max-width: 600px) {
   .brDesktop { display: none; }
 }
