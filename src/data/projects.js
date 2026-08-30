@@ -10,6 +10,11 @@ import poseDemoPoster from '../assets/pose-estimation-demo-poster.jpg'
 //Ovarro
 import ovarroPoster from '../assets/OvarroPoster.jpg'
 
+//Website
+import ide from '../assets/Website-IDE.png'
+import gitHubActions from '../assets/Website-GitHubActions.png'
+import cloudFlare from '../assets/Website-CloudFlare.png'
+
 //Robotics
 import roboticsPhoto from '../assets/Robotics.jpg'
 
@@ -170,6 +175,68 @@ export const FLAGSHIP_PROJECTS = [
 // shape as the flagship projects, sourced from the four role-targeted CVs
 // (AI/Computer Vision, Cloud/DevOps, Cybersecurity, Software Engineer).
 export const OTHER_PROJECTS = [
+  {
+    slug: 'portfolio-website',
+    about: [
+      'Personal Project',
+      'Web Development'
+    ],
+    title: 'Upgrading my website',
+    subtitle: 'A personal portfolio site built with React + Vite',
+    problem: "CVs rarely show the whole story. I wanted a place where recruiters and potential employers could see my personality and taste, not just a list of projects.",
+    approach: [
+      'Started from a set of functional requirements and researched the best implementation for them before writing any code',
+      'Chose React + Vite for the build, with deployment on GitHub Pages',
+      'Iterated outward from a minimal landing page (hero, about, flagship, skills, contact), progressively adding more complex features once the basics worked',
+      'Built and tested locally with npm first, then wired up GitHub Actions to build and deploy automatically on every push to main',
+      'Designed for desktop and mobile from the start, not retrofitted afterwards',
+      'Added Cloudflare Web Analytics to get a sense of actual traffic',
+    ],
+    metricLabel: 'Custom web page, built from scratch',
+    metricNote: 'solo rebuild, deployed via GitHub Actions CI/CD',
+    tags: ['React', 'Vite', 'CSS', 'GitHub Pages'],
+    brief: "A while ago I used a template as the base for my own portfolio website. It was plain, simple, and let me say in interviews 'hey, you can check out my website and see what I built’, but it never really captured my own taste, or showed anything about myself beyond the few projects I'd put on there. When I graduated from university I set about rebuilding it properly, as a personal project.",
+    process: [
+      "Defined a bold, playful visual style early on and settled on a target audience split between recruiters and casual visitors. That decision shaped everything downstream: only one or two flagship projects on the homepage, with personality carried instead by a story-driven About section and some custom visual flare.",
+      "Worked iteratively with git, branching off per feature so an experiment could be abandoned or reworked without risking whatever already worked.",
+      "Built custom UI components: a polaroid photo stack in the About section, a floating word-cloud field in the hero, and a phone-frame media viewer on project pages.",
+      "Structured all project content as data in a single file (`src/data/projects.js`) rather than hardcoding markup per project, so every case study renders from one template and adding a new project is a data change, not a UI one.",
+    ],
+    implementation: [
+      "Set up the toolchain: React + Vite for the build, React Router for client-side routing, and a GitHub Actions workflow that builds `main` on every push and publishes straight to Pages - no build output committed to git.",
+      "Implemented dark mode via a ThemeContext that reads the OS colour-scheme preference on first load and persists the user's choice to localStorage, with a small inline script in index.html that sets the theme before first paint to avoid a flash of the wrong theme.",
+      "Worked around GitHub Pages having no server-side rewrites: a client-side-routed page means a direct link to a sub-page like `/work/pose-estimation` would normally just 404, so I added the standard `public/404.html` redirect trick to bounce it back to `index.html` and restore the real URL before React Router mounts.",
+      "Wrote a small `generate-sitemap.js` script that runs as a prebuild step to keep `sitemap.xml` in sync with the actual routes, alongside a `robots.txt` file.",
+      "Added Open Graph and Twitter Card metadata plus JSON-LD structured data to index.html, so links shared on social media or picked up by search engines show a proper title, description, and preview image instead of a bare URL.",
+    ],
+    outcome: "The result is this website: a from-scratch React + Vite rebuild of a site that used to be a template, deployed automatically on every push, with its own visual identity, dark mode, custom components, and the search engine optimisation (SEO), social-metadata, and analytics plumbing a template never had to think about.",
+    challenges: [
+      "First time working with React and Vite: most of the early effort went into getting comfortable with component structure and the build tooling, more than writing content.",
+      "First time thinking properly about SEO: adding a robots.txt and a generated sitemap.xml, and considering how crawlers and scrapers actually see a client-side-rendered page rather than static HTML.",
+      "First time adding link-preview metadata (Open Graph and Twitter Card tags plus a dedicated preview image) so the site looks intentional rather than blank when shared on LinkedIn or in a message, plus a custom 404 page for expired or mistyped links.",
+      "First time adding web analytics to a personal site, which meant reading into GDPR and cookie-consent implications before picking a tool. Landed on Cloudflare Web Analytics specifically because it's cookieless and collects no personal data, so no consent banner was needed.",
+    ],
+    media: {
+      type: 'poster',
+      items: [
+        {
+          type: 'image',
+          src: ide,
+          alt: 'Git history and project structure in IntelliJ IDEA',
+        },
+        {
+          type: 'image',
+          src: gitHubActions,
+          alt: 'GitHub Actions workflows from previous deployments',
+        },
+        {
+          type: 'image',
+          src: cloudFlare,
+          alt: 'CloudFlare analytics for the website',
+        },
+      ],
+    },
+  },
   {
     slug: 'path-following-robot',
     about: [

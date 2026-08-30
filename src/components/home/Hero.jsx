@@ -8,13 +8,13 @@ import styles from './Hero.module.css'
 // `desc` is a short first-person note surfaced in a hover bubble — see getBubblePlacement below
 // for how each bubble decides which side of the tag to open on.
 const TAGS = [
-  { label: 'Computer Vision', x: 7, y: 15, size: 1, fill: true, rot: -3, desc: "Learnt it for my dissertation, then built and shipped the algorithms myself for my final-year project" },
+  { label: 'Computer Vision', x: 7, y: 15, size: 1, fill: true, rot: -3, desc: "Learned it for my dissertation, then built and shipped the algorithms myself for my final-year project" },
   { label: 'Rugby', x: 47, y: 46, size: 0.85, rot: 4, desc: "Fly-half for over a dozen years. Used to directing players bigger and more experienced than me" },
   { label: 'PyTorch', x: 18, y: 58, size: 0.9, fill: true, rot: 2, desc: "My go-to for training and quantising models, from GAN experiments to the pose-estimation network in my final-year project" },
   { label: 'SCADA Systems', x: 64, y: 64, size: 1, fill: true, rot: -2, desc: "A year on Ovarro's product team, keeping the software behind water and energy infrastructure running" },
   { label: 'Snowboarding', x: 4, y: 76, size: 0.85, rot: -5, desc: "After a lot of blood, sweat and tears, I\'m now an avid snowboarder and love nothing more than a fresh powder day" },
   { label: 'BGP Routing', x: 88, y: 42, size: 0.85, fill: true, rot: 3, desc: "Configured real peering sessions between autonomous systems for a networking module" },
-  { label: 'Philosophy', x: 38, y: 6, size: 0.85, rot: -4, desc: "Mandatory for the French baccalaureat. Wasn't sold at first; the critical thinking stuck with me everywhere since" },
+  { label: 'Philosophy', x: 38, y: 6, size: 0.85, rot: -4, desc: "Mandatory for the French Baccalaureat. Wasn't sold at first; the critical thinking stuck with me everywhere since" },
   { label: 'iOS / CoreML', x: 55, y: 20, size: 0.9, fill: true, rot: 2, desc: "Quantised and exported a pose-estimation model to CoreML so it runs fully on-device, no server needed" },
   { label: 'Cinema', x: 84, y: 78, size: 0.85, rot: -3, desc: "Watching video essays of my favourite films and series, often leaving reviews on Letterboxd" },
   { label: 'Cryptography', x: 27, y: 86, size: 0.85, fill: true, rot: 5, desc: "TLS, PKI, the theory behind keeping systems honest" },
