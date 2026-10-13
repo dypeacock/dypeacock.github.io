@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
+import FilterBar from '../components/work/FilterBar'
 import { ALL_PROJECTS } from '../data/projects'
 import { cx } from '../lib/cx'
 import shared from '../styles/shared.module.css'
@@ -41,28 +42,13 @@ export default function Work() {
         <h1 className={styles.heading}>Everything, filterable.</h1>
 
         <div className={styles.filter}>
-          <p className={styles.filterLabel}>Filter by tag</p>
-          <div className={tagStyles.tagList}>
-            {ALL_TAGS.map((tag) => (
-              <button
-                key={tag}
-                type="button"
-                className={cx(tagStyles.tag, tagStyles.tagFilter, activeTags.has(tag) && tagStyles.tagActive)}
-                aria-pressed={activeTags.has(tag)}
-                onClick={() => toggleTag(tag)}
-              >
-                {tag}
-              </button>
-            ))}
-            <button
-              type="button"
-              className={cx(tagStyles.tag, tagStyles.tagFilter, tagStyles.tagClear)}
-              onClick={clearFilters}
-              disabled={activeTags.size === 0}
-            >
-              Clear filters
-            </button>
-          </div>
+          {/*<p className={styles.filterLabel}>Filter by tag</p>*/}
+          <FilterBar
+            allTags={ALL_TAGS}
+            activeTags={activeTags}
+            onToggleTag={toggleTag}
+            onClear={clearFilters}
+          />
         </div>
 
         <div className={styles.grid}>

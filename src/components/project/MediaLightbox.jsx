@@ -1,12 +1,11 @@
-import { useEffect, useRef } from 'react'
+import { useCallback, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { cx } from '../../lib/cx'
+import { useFocusTrapDialog } from '../../hooks/useFocusTrapDialog'
 import { useMediaSlides } from './useMediaSlides'
 import MediaSlide from './MediaSlide'
 import { ChevronIcon, CloseIcon, PlayIcon, PauseIcon } from './Icons'
 import styles from './MediaLightbox.module.css'
-
-const FOCUSABLE_SELECTOR = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
 
 // Expanded overlay for a project's media. Deliberately reuses useMediaSlides
 // rather than tracking its own index — it's the same slide set as the inline
@@ -15,46 +14,16 @@ export default function MediaLightbox({ items, initialIndex, title, variant, onC
   const { index, current, count, next, prev, goTo, paused, togglePlay } = useMediaSlides(items, initialIndex)
   const dialogRef = useRef(null)
 
-  useEffect(() => {
-    const previouslyFocused = document.activeElement
-    dialogRef.current?.focus()
-    document.body.style.overflow = 'hidden'
-
-    return () => {
-      document.body.style.overflow = ''
-      previouslyFocused?.focus?.()
+  const handleSlideKeys = useCallback((event) => {
+    if (count > 1 && event.key === 'ArrowRight') next()
+    if (count > 1 && event.key === 'ArrowLeft') prev()
+    if (event.key === ' ' && current.type === 'video') {
+      event.preventDefault()
+      togglePlay()
     }
-  }, [])
+  }, [count, next, prev, current, togglePlay])
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        onClose()
-        return
-      }
-      if (count > 1 && event.key === 'ArrowRight') next()
-      if (count > 1 && event.key === 'ArrowLeft') prev()
-      if (event.key === ' ' && current.type === 'video') {
-        event.preventDefault()
-        togglePlay()
-      }
-      if (event.key === 'Tab') {
-        const focusable = dialogRef.current?.querySelectorAll(FOCUSABLE_SELECTOR)
-        if (!focusable?.length) return
-        const first = focusable[0]
-        const last = focusable[focusable.length - 1]
-        if (event.shiftKey && document.activeElement === first) {
-          event.preventDefault()
-          last.focus()
-        } else if (!event.shiftKey && document.activeElement === last) {
-          event.preventDefault()
-          first.focus()
-        }
-      }
-    }
-    document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
-  }, [count, next, prev, current, togglePlay, onClose])
+  useFocusTrapDialog(dialogRef, onClose, { onKeyDown: handleSlideKeys })
 
   return createPortal(
     <div className={styles.backdrop} onClick={onClose}>
